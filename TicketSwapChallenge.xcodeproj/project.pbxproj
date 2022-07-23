@@ -10,12 +10,25 @@
 		ED8485012880FC58004F14C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485002880FC58004F14C3 /* AppDelegate.swift */; };
 		ED8485032880FC58004F14C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485022880FC58004F14C3 /* SceneDelegate.swift */; };
 		ED8485052880FC58004F14C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485042880FC58004F14C3 /* ViewController.swift */; };
-		ED8485082880FC58004F14C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED8485062880FC58004F14C3 /* Main.storyboard */; };
 		ED84850A2880FC5A004F14C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED8485092880FC5A004F14C3 /* Assets.xcassets */; };
 		ED84850D2880FC5A004F14C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED84850B2880FC5A004F14C3 /* LaunchScreen.storyboard */; };
 		ED8485182880FC5A004F14C3 /* TicketSwapChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485172880FC5A004F14C3 /* TicketSwapChallengeTests.swift */; };
 		ED8485222880FC5A004F14C3 /* TicketSwapChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485212880FC5A004F14C3 /* TicketSwapChallengeUITests.swift */; };
 		ED8485242880FC5A004F14C3 /* TicketSwapChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485232880FC5A004F14C3 /* TicketSwapChallengeUITestsLaunchTests.swift */; };
+		ED84853C2884CDCB004F14C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84853B2884CDCB004F14C3 /* Constants.swift */; };
+		ED8485482884F13D004F14C3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485472884F13D004F14C3 /* HomeViewController.swift */; };
+		ED84855C2884F403004F14C3 /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8485592884F3EF004F14C3 /* SpotifyiOS.xcframework */; };
+		ED84855D2884F403004F14C3 /* SpotifyiOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED8485592884F3EF004F14C3 /* SpotifyiOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED84856528862728004F14C3 /* ArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84856428862728004F14C3 /* ArtistDetailViewController.swift */; };
+		ED8485672886277F004F14C3 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485662886277F004F14C3 /* AuthViewController.swift */; };
+		ED84856A288627BA004F14C3 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED848569288627BA004F14C3 /* AuthManager.swift */; };
+		ED84856C288627C5004F14C3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84856B288627C5004F14C3 /* NetworkManager.swift */; };
+		ED84856E288627EA004F14C3 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84856D288627EA004F14C3 /* Artist.swift */; };
+		ED848570288627F2004F14C3 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84856F288627F2004F14C3 /* Song.swift */; };
+		ED84857328862AC0004F14C3 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84857228862AC0004F14C3 /* WelcomeViewController.swift */; };
+		ED8485752889A0B1004F14C3 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485742889A0B1004F14C3 /* AuthResponse.swift */; };
+		EDB06F2D288CBDBE00A314F8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EDB06F2C288CBDBE00A314F8 /* SDWebImage */; };
+		EDB06F2F288CBDBE00A314F8 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EDB06F2E288CBDBE00A314F8 /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +48,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		ED84855E2884F403004F14C3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				ED84855D2884F403004F14C3 /* SpotifyiOS.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		ED8484FD2880FC58004F14C3 /* TicketSwapChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketSwapChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8485002880FC58004F14C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED8485022880FC58004F14C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ED8485042880FC58004F14C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		ED8485072880FC58004F14C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED8485092880FC5A004F14C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED84850C2880FC5A004F14C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED84850E2880FC5A004F14C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +75,19 @@
 		ED84851D2880FC5A004F14C3 /* TicketSwapChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketSwapChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8485212880FC5A004F14C3 /* TicketSwapChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketSwapChallengeUITests.swift; sourceTree = "<group>"; };
 		ED8485232880FC5A004F14C3 /* TicketSwapChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketSwapChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ED8485382884C82A004F14C3 /* TicketSwapChallenge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TicketSwapChallenge-Bridging-Header.h"; sourceTree = "<group>"; };
+		ED84853B2884CDCB004F14C3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ED8485472884F13D004F14C3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ED8485582884F3EF004F14C3 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
+		ED8485592884F3EF004F14C3 /* SpotifyiOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SpotifyiOS.xcframework; sourceTree = "<group>"; };
+		ED84856428862728004F14C3 /* ArtistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewController.swift; sourceTree = "<group>"; };
+		ED8485662886277F004F14C3 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		ED848569288627BA004F14C3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		ED84856B288627C5004F14C3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		ED84856D288627EA004F14C3 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		ED84856F288627F2004F14C3 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		ED84857228862AC0004F14C3 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		ED8485742889A0B1004F14C3 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +95,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB06F2D288CBDBE00A314F8 /* SDWebImage in Frameworks */,
+				EDB06F2F288CBDBE00A314F8 /* SDWebImageMapKit in Frameworks */,
+				ED84855C2884F403004F14C3 /* SpotifyiOS.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +125,7 @@
 				ED8485162880FC5A004F14C3 /* TicketSwapChallengeTests */,
 				ED8485202880FC5A004F14C3 /* TicketSwapChallengeUITests */,
 				ED8484FE2880FC58004F14C3 /* Products */,
+				ED8485432884F070004F14C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +142,15 @@
 		ED8484FF2880FC58004F14C3 /* TicketSwapChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				ED8485002880FC58004F14C3 /* AppDelegate.swift */,
-				ED8485022880FC58004F14C3 /* SceneDelegate.swift */,
-				ED8485042880FC58004F14C3 /* ViewController.swift */,
-				ED8485062880FC58004F14C3 /* Main.storyboard */,
+				ED84857128862850004F14C3 /* App */,
+				ED848568288627AB004F14C3 /* Managers */,
+				ED84856228862530004F14C3 /* Resources */,
+				ED848561288624D2004F14C3 /* ViewModel */,
+				ED848560288624CD004F14C3 /* Model */,
+				ED84855F288624C4004F14C3 /* View */,
 				ED8485092880FC5A004F14C3 /* Assets.xcassets */,
-				ED84850B2880FC5A004F14C3 /* LaunchScreen.storyboard */,
 				ED84850E2880FC5A004F14C3 /* Info.plist */,
+				ED8485382884C82A004F14C3 /* TicketSwapChallenge-Bridging-Header.h */,
 			);
 			path = TicketSwapChallenge;
 			sourceTree = "<group>";
@@ -127,6 +172,79 @@
 			path = TicketSwapChallengeUITests;
 			sourceTree = "<group>";
 		};
+		ED8485432884F070004F14C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED8485582884F3EF004F14C3 /* SpotifyiOS.framework */,
+				ED8485592884F3EF004F14C3 /* SpotifyiOS.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED84855F288624C4004F14C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED84850B2880FC5A004F14C3 /* LaunchScreen.storyboard */,
+				ED8485632886253B004F14C3 /* Controllers */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED848560288624CD004F14C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED84856D288627EA004F14C3 /* Artist.swift */,
+				ED84856F288627F2004F14C3 /* Song.swift */,
+				ED8485742889A0B1004F14C3 /* AuthResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED848561288624D2004F14C3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ED84856228862530004F14C3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED84853B2884CDCB004F14C3 /* Constants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ED8485632886253B004F14C3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED8485472884F13D004F14C3 /* HomeViewController.swift */,
+				ED8485042880FC58004F14C3 /* ViewController.swift */,
+				ED84856428862728004F14C3 /* ArtistDetailViewController.swift */,
+				ED8485662886277F004F14C3 /* AuthViewController.swift */,
+				ED84857228862AC0004F14C3 /* WelcomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ED848568288627AB004F14C3 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				ED848569288627BA004F14C3 /* AuthManager.swift */,
+				ED84856B288627C5004F14C3 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		ED84857128862850004F14C3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				ED8485002880FC58004F14C3 /* AppDelegate.swift */,
+				ED8485022880FC58004F14C3 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,12 +255,17 @@
 				ED8484F92880FC58004F14C3 /* Sources */,
 				ED8484FA2880FC58004F14C3 /* Frameworks */,
 				ED8484FB2880FC58004F14C3 /* Resources */,
+				ED84855E2884F403004F14C3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = TicketSwapChallenge;
+			packageProductDependencies = (
+				EDB06F2C288CBDBE00A314F8 /* SDWebImage */,
+				EDB06F2E288CBDBE00A314F8 /* SDWebImageMapKit */,
+			);
 			productName = TicketSwapChallenge;
 			productReference = ED8484FD2880FC58004F14C3 /* TicketSwapChallenge.app */;
 			productType = "com.apple.product-type.application";
@@ -195,6 +318,7 @@
 				TargetAttributes = {
 					ED8484FC2880FC58004F14C3 = {
 						CreatedOnToolsVersion = 13.3.1;
+						LastSwiftMigration = 1330;
 					};
 					ED8485122880FC5A004F14C3 = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -215,6 +339,9 @@
 				Base,
 			);
 			mainGroup = ED8484F42880FC58004F14C3;
+			packageReferences = (
+				EDB06F2B288CBDBE00A314F8 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = ED8484FE2880FC58004F14C3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +360,6 @@
 			files = (
 				ED84850D2880FC5A004F14C3 /* LaunchScreen.storyboard in Resources */,
 				ED84850A2880FC5A004F14C3 /* Assets.xcassets in Resources */,
-				ED8485082880FC58004F14C3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +384,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8485752889A0B1004F14C3 /* AuthResponse.swift in Sources */,
+				ED84856C288627C5004F14C3 /* NetworkManager.swift in Sources */,
+				ED8485482884F13D004F14C3 /* HomeViewController.swift in Sources */,
+				ED84856A288627BA004F14C3 /* AuthManager.swift in Sources */,
 				ED8485052880FC58004F14C3 /* ViewController.swift in Sources */,
 				ED8485012880FC58004F14C3 /* AppDelegate.swift in Sources */,
+				ED848570288627F2004F14C3 /* Song.swift in Sources */,
+				ED8485672886277F004F14C3 /* AuthViewController.swift in Sources */,
 				ED8485032880FC58004F14C3 /* SceneDelegate.swift in Sources */,
+				ED84856528862728004F14C3 /* ArtistDetailViewController.swift in Sources */,
+				ED84857328862AC0004F14C3 /* WelcomeViewController.swift in Sources */,
+				ED84856E288627EA004F14C3 /* Artist.swift in Sources */,
+				ED84853C2884CDCB004F14C3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +433,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		ED8485062880FC58004F14C3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED8485072880FC58004F14C3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ED84850B2880FC5A004F14C3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -352,6 +480,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -412,6 +541,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -435,14 +565,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G387Y8424R;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TicketSwapChallengeUITests",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/TicketSwapChallenge",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TicketSwapChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -450,11 +586,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plotpoint.TicketSwapChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TicketSwapChallenge/TicketSwapChallenge-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -463,14 +603,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G387Y8424R;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TicketSwapChallengeUITests",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/TicketSwapChallenge",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TicketSwapChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -478,11 +624,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plotpoint.TicketSwapChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TicketSwapChallenge/TicketSwapChallenge-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
@@ -602,6 +751,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EDB06F2B288CBDBE00A314F8 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EDB06F2C288CBDBE00A314F8 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDB06F2B288CBDBE00A314F8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		EDB06F2E288CBDBE00A314F8 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDB06F2B288CBDBE00A314F8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ED8484F52880FC58004F14C3 /* Project object */;
 }
