@@ -19,23 +19,13 @@ struct Constants {
         static let scopes = "user-read-private%20ugc-image-upload%20playlist-read-private%20playlist-modify-public%20user-follow-read%20playlist-modify-private%20user-library-modify%20user-read-email"
         static let baseURL = "https://api.spotify.com/v1"
     }
-//    static let scopes: SPTScope = [
-//                                .userReadEmail, .userReadPrivate,
-//                                .userReadPlaybackState, .userModifyPlaybackState, .userReadCurrentlyPlaying,
-//                                .streaming, .appRemoteControl,
-//                                .playlistReadCollaborative, .playlistModifyPublic, .playlistReadPrivate, . playlistModifyPrivate,
-//                                .userLibraryModify, .userLibraryRead,
-//                                .userTopRead, .userReadPlaybackState, .userReadCurrentlyPlaying,
-//                                .userFollowRead, .userFollowModify,
-//                            ]
-    static let stringScopes = [
-                            "user-read-email", "user-read-private",
-                            "user-read-playback-state", "user-modify-playback-state", "user-read-currently-playing",
-                            "streaming", "app-remote-control",
-                            "playlist-read-collaborative", "playlist-modify-public", "playlist-read-private", "playlist-modify-private",
-                            "user-library-modify", "user-library-read",
-                            "user-top-read", "user-read-playback-position", "user-read-recently-played",
-                            "user-follow-read", "user-follow-modify",
-                        ]
 
+    struct Layout {
+        static let cornerRadius: CGFloat = 10
+        static let fontFifteen: CGFloat = 15
+        static let fontTwenty: CGFloat = 20
+        static let heartSize: CGFloat = 35
+        static let shadowRadius: CGFloat = 7
+        static let shadowOpacity: Float = 0.7
+    }
 }

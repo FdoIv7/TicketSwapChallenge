@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: homeViewController)
         window = UIWindow(frame: UIScreen.main.bounds)
         if AuthManager.shared.isSigned {
+            // Instead of waiting for an APICall to refresh the token, as soon as we are logedIn we refresh the token
+            AuthManager.shared.refreshAccessToken(completion: nil)
             window?.rootViewController = navigationController
         } else {
             let navController = UINavigationController(rootViewController: WelcomeViewController())
@@ -28,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         AuthManager.shared.refreshAccessToken { status in
             print(status)
+        }
+        // Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Mobile/15E148 Safari/604.1
+        let dictionary = NSDictionary(object: "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36", forKey: "UserAgent" as NSCopying)
+        if let dict = dictionary as? [String: Any] {
+            UserDefaults.standard.register(defaults: dict)
         }
         return true
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED503AB22892233000531E26 /* AlbumDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED503AB12892233000531E26 /* AlbumDetails.swift */; };
 		ED8485012880FC58004F14C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485002880FC58004F14C3 /* AppDelegate.swift */; };
 		ED8485032880FC58004F14C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485022880FC58004F14C3 /* SceneDelegate.swift */; };
 		ED8485052880FC58004F14C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485042880FC58004F14C3 /* ViewController.swift */; };
@@ -27,8 +28,21 @@
 		ED848570288627F2004F14C3 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84856F288627F2004F14C3 /* Song.swift */; };
 		ED84857328862AC0004F14C3 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84857228862AC0004F14C3 /* WelcomeViewController.swift */; };
 		ED8485752889A0B1004F14C3 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485742889A0B1004F14C3 /* AuthResponse.swift */; };
+		EDA8FC312890D97400BCC75D /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8FC302890D97400BCC75D /* UIColor+Ext.swift */; };
+		EDA8FC332890DA1A00BCC75D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8FC322890DA1A00BCC75D /* Utilities.swift */; };
+		EDA8FC352890E56500BCC75D /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8FC342890E56500BCC75D /* AlbumDetailViewController.swift */; };
+		EDA8FC372891EC7D00BCC75D /* AlbumDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8FC362891EC7D00BCC75D /* AlbumDetailViewModel.swift */; };
 		EDB06F2D288CBDBE00A314F8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EDB06F2C288CBDBE00A314F8 /* SDWebImage */; };
 		EDB06F2F288CBDBE00A314F8 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EDB06F2E288CBDBE00A314F8 /* SDWebImageMapKit */; };
+		EDB06F31288CC83800A314F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F30288CC83800A314F8 /* HomeViewModel.swift */; };
+		EDB06F33288CC84300A314F8 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F32288CC84300A314F8 /* SearchViewModel.swift */; };
+		EDB06F35288CC89000A314F8 /* NewReleases.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F34288CC89000A314F8 /* NewReleases.swift */; };
+		EDB06F37288D9FC600A314F8 /* AlbumResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F36288D9FC600A314F8 /* AlbumResponse.swift */; };
+		EDB06F39288DE48700A314F8 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F38288DE48700A314F8 /* AlbumCollectionViewCell.swift */; };
+		EDB06F3B288E035E00A314F8 /* NewReleasesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F3A288E035E00A314F8 /* NewReleasesCellViewModel.swift */; };
+		EDB06F3E288E0A3C00A314F8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EDB06F3D288E0A3B00A314F8 /* RxCocoa */; };
+		EDB06F40288E0A3C00A314F8 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EDB06F3F288E0A3C00A314F8 /* RxRelay */; };
+		EDB06F42288E0A3C00A314F8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EDB06F41288E0A3C00A314F8 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +77,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ED503AB12892233000531E26 /* AlbumDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetails.swift; sourceTree = "<group>"; };
 		ED8484FD2880FC58004F14C3 /* TicketSwapChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketSwapChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8485002880FC58004F14C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED8485022880FC58004F14C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +103,16 @@
 		ED84856F288627F2004F14C3 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		ED84857228862AC0004F14C3 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		ED8485742889A0B1004F14C3 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		EDA8FC302890D97400BCC75D /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		EDA8FC322890DA1A00BCC75D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		EDA8FC342890E56500BCC75D /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
+		EDA8FC362891EC7D00BCC75D /* AlbumDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewModel.swift; sourceTree = "<group>"; };
+		EDB06F30288CC83800A314F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EDB06F32288CC84300A314F8 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		EDB06F34288CC89000A314F8 /* NewReleases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleases.swift; sourceTree = "<group>"; };
+		EDB06F36288D9FC600A314F8 /* AlbumResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumResponse.swift; sourceTree = "<group>"; };
+		EDB06F38288DE48700A314F8 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		EDB06F3A288E035E00A314F8 /* NewReleasesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +120,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB06F42288E0A3C00A314F8 /* RxSwift in Frameworks */,
+				EDB06F40288E0A3C00A314F8 /* RxRelay in Frameworks */,
 				EDB06F2D288CBDBE00A314F8 /* SDWebImage in Frameworks */,
 				EDB06F2F288CBDBE00A314F8 /* SDWebImageMapKit in Frameworks */,
+				EDB06F3E288E0A3C00A314F8 /* RxCocoa in Frameworks */,
 				ED84855C2884F403004F14C3 /* SpotifyiOS.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,6 +214,7 @@
 			children = (
 				ED84850B2880FC5A004F14C3 /* LaunchScreen.storyboard */,
 				ED8485632886253B004F14C3 /* Controllers */,
+				EDB06F38288DE48700A314F8 /* AlbumCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +225,9 @@
 				ED84856D288627EA004F14C3 /* Artist.swift */,
 				ED84856F288627F2004F14C3 /* Song.swift */,
 				ED8485742889A0B1004F14C3 /* AuthResponse.swift */,
+				EDB06F34288CC89000A314F8 /* NewReleases.swift */,
+				EDB06F36288D9FC600A314F8 /* AlbumResponse.swift */,
+				ED503AB12892233000531E26 /* AlbumDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,6 +235,10 @@
 		ED848561288624D2004F14C3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EDB06F30288CC83800A314F8 /* HomeViewModel.swift */,
+				EDA8FC362891EC7D00BCC75D /* AlbumDetailViewModel.swift */,
+				EDB06F32288CC84300A314F8 /* SearchViewModel.swift */,
+				EDB06F3A288E035E00A314F8 /* NewReleasesCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -211,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				ED84853B2884CDCB004F14C3 /* Constants.swift */,
+				EDA8FC302890D97400BCC75D /* UIColor+Ext.swift */,
+				EDA8FC322890DA1A00BCC75D /* Utilities.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -223,6 +261,7 @@
 				ED84856428862728004F14C3 /* ArtistDetailViewController.swift */,
 				ED8485662886277F004F14C3 /* AuthViewController.swift */,
 				ED84857228862AC0004F14C3 /* WelcomeViewController.swift */,
+				EDA8FC342890E56500BCC75D /* AlbumDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -265,6 +304,9 @@
 			packageProductDependencies = (
 				EDB06F2C288CBDBE00A314F8 /* SDWebImage */,
 				EDB06F2E288CBDBE00A314F8 /* SDWebImageMapKit */,
+				EDB06F3D288E0A3B00A314F8 /* RxCocoa */,
+				EDB06F3F288E0A3C00A314F8 /* RxRelay */,
+				EDB06F41288E0A3C00A314F8 /* RxSwift */,
 			);
 			productName = TicketSwapChallenge;
 			productReference = ED8484FD2880FC58004F14C3 /* TicketSwapChallenge.app */;
@@ -341,6 +383,7 @@
 			mainGroup = ED8484F42880FC58004F14C3;
 			packageReferences = (
 				EDB06F2B288CBDBE00A314F8 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				EDB06F3C288E0A3B00A314F8 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = ED8484FE2880FC58004F14C3 /* Products */;
 			projectDirPath = "";
@@ -384,17 +427,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB06F39288DE48700A314F8 /* AlbumCollectionViewCell.swift in Sources */,
 				ED8485752889A0B1004F14C3 /* AuthResponse.swift in Sources */,
 				ED84856C288627C5004F14C3 /* NetworkManager.swift in Sources */,
+				EDA8FC372891EC7D00BCC75D /* AlbumDetailViewModel.swift in Sources */,
+				EDA8FC352890E56500BCC75D /* AlbumDetailViewController.swift in Sources */,
+				EDB06F3B288E035E00A314F8 /* NewReleasesCellViewModel.swift in Sources */,
 				ED8485482884F13D004F14C3 /* HomeViewController.swift in Sources */,
 				ED84856A288627BA004F14C3 /* AuthManager.swift in Sources */,
 				ED8485052880FC58004F14C3 /* ViewController.swift in Sources */,
 				ED8485012880FC58004F14C3 /* AppDelegate.swift in Sources */,
+				EDB06F37288D9FC600A314F8 /* AlbumResponse.swift in Sources */,
+				EDA8FC332890DA1A00BCC75D /* Utilities.swift in Sources */,
+				ED503AB22892233000531E26 /* AlbumDetails.swift in Sources */,
+				EDB06F35288CC89000A314F8 /* NewReleases.swift in Sources */,
+				EDB06F33288CC84300A314F8 /* SearchViewModel.swift in Sources */,
 				ED848570288627F2004F14C3 /* Song.swift in Sources */,
 				ED8485672886277F004F14C3 /* AuthViewController.swift in Sources */,
 				ED8485032880FC58004F14C3 /* SceneDelegate.swift in Sources */,
+				EDB06F31288CC83800A314F8 /* HomeViewModel.swift in Sources */,
 				ED84856528862728004F14C3 /* ArtistDetailViewController.swift in Sources */,
 				ED84857328862AC0004F14C3 /* WelcomeViewController.swift in Sources */,
+				EDA8FC312890D97400BCC75D /* UIColor+Ext.swift in Sources */,
 				ED84856E288627EA004F14C3 /* Artist.swift in Sources */,
 				ED84853C2884CDCB004F14C3 /* Constants.swift in Sources */,
 			);
@@ -761,6 +815,14 @@
 				kind = branch;
 			};
 		};
+		EDB06F3C288E0A3B00A314F8 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -773,6 +835,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EDB06F2B288CBDBE00A314F8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		EDB06F3D288E0A3B00A314F8 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDB06F3C288E0A3B00A314F8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		EDB06F3F288E0A3C00A314F8 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDB06F3C288E0A3B00A314F8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		EDB06F41288E0A3C00A314F8 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDB06F3C288E0A3B00A314F8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -77,7 +77,7 @@ final class AuthManager {
                 completion(true)
                 // API Token needs to be encoded with multipart form APIData - Not in JSON
             } catch {
-                print(error)
+                print("error = \(error)")
             }
             
         }.resume()
@@ -85,9 +85,7 @@ final class AuthManager {
     
     private func cacheToken(with result: AuthResponse) {
         UserDefaults.standard.setValue(result.accessToken, forKey: "access_token")
-        if let refreshToken = result.refreshToken {
-            UserDefaults.standard.setValue(result.refreshToken, forKey: "refresh_token")
-        }
+        UserDefaults.standard.setValue(result.refreshToken, forKey: "refresh_token")
         // Current time the user logged in + the number of seconds it expires in
         UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expiration)), forKey: "expirationDate")
          
@@ -100,6 +98,7 @@ final class AuthManager {
             onRefreshBlocks.append(completion)
             return
         }
+        // Maybe this is wrong!
         guard let token = accessToken else { return }
         if shouldRefreshToken {
             // Refresh token
@@ -117,6 +116,7 @@ final class AuthManager {
     // Refresh accessToken if expired
     public func refreshAccessToken(completion: ((Bool) -> ())?) {
         // Check if we are not refreshing so we dont do it twice
+        // Made completion optional to be able to pass nil
         if isRefreshing { return }
         if shouldRefreshToken {
             completion?(true)

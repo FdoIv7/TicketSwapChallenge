@@ -22,7 +22,7 @@ final class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setView()
+        setView() 
     }
     
     private func addSubviews() {
@@ -65,9 +65,7 @@ final class WelcomeViewController: UIViewController {
 
     private func handleSignIn(signedIn: Bool) {
          // If we successfully sign in
-        if signedIn {
-            
-        } else {
+        if !signedIn {
             let alert = UIAlertController(title: "Error", message: "Something went wrong when signing in", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
             present(alert, animated: true)
