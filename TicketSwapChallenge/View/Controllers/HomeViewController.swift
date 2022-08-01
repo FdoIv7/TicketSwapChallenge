@@ -91,7 +91,7 @@ class HomeViewController: UIViewController {
                 }
             }, onError: { error in
                 // Update UI with error
-                print(error)
+                print("error home view controller = \(error)")
             })
             .disposed(by: disposeBag)
         
@@ -130,6 +130,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         let album = newAlbumReleases[indexPath.row]
         let albumController = AlbumDetailViewController(album: album)
         albumController.title = album.name
+        // Navcontroller is nil in some cases
         navigationController?.pushViewController(albumController, animated: true)
     }
 

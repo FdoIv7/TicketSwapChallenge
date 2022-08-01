@@ -10,17 +10,17 @@ import RxSwift
 import RxCocoa
 
 final class HomeViewModel {
-
-//    public func getNewReleases(completion: @escaping(Result<NewReleases, Error>) -> ()) {
-//        NertworkManager.shared.getNewReleases { result in
-//            switch result {
-//            case .success(let newRelease):
-//                completion(.success(newRelease))
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
-//    }
+    
+    //    public func getNewReleases(completion: @escaping(Result<NewReleases, Error>) -> ()) {
+    //        NertworkManager.shared.getNewReleases { result in
+    //            switch result {
+    //            case .success(let newRelease):
+    //                completion(.success(newRelease))
+    //            case .failure(let error):
+    //                completion(.failure(error))
+    //            }
+    //        }
+    //    }
 
     func getNewReleases() -> Observable<NewReleases> {
         let newReleasesURLString = Constants.Network.baseURL + "/browse/new-releases?limit=40"
@@ -29,12 +29,15 @@ final class HomeViewModel {
             .flatMap { url -> Observable<(response: HTTPURLResponse, data: Data)> in
                 guard let url = URL(string: url) else { return Observable.empty() }
                 var request = URLRequest(url: url)
+                var response: Observable<(response: HTTPURLResponse, data: Data)>!
                 AuthManager.shared.callWithLatestToken { token in
                     request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
                     request.httpMethod = HTTPMethod.GET.rawValue
-                    request.timeoutInterval = 45
+                    request.timeoutInterval = 30
+                    response = URLSession.shared.rx.response(request: request)
                 }
-                return URLSession.shared.rx.response(request: request)
+                guard let response = response else { return Observable.empty() }
+                return response
             }
             .map { response, data -> NewReleases in
                 if 200..<300 ~= response.statusCode {

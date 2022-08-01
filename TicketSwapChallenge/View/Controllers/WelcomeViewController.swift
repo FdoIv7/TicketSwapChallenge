@@ -72,8 +72,12 @@ final class WelcomeViewController: UIViewController {
             return
         }
         let homeViewController = HomeViewController()
+        let navController = UINavigationController(rootViewController: homeViewController)
         homeViewController.modalPresentationStyle = .fullScreen
-        present(homeViewController, animated: true)
+        //navController.modalTransitionStyle = .fullScreen
+        //present(homeViewController, animated: true)
+        present(navController ,animated: true)
+        //navigationController?.pushViewController(homeViewController, animated: true)
         
     }
 }

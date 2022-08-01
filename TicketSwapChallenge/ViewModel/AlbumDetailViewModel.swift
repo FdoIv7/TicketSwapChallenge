@@ -19,12 +19,15 @@ final class AlbumDetailViewModel {
             .flatMap { url -> Observable<(response: HTTPURLResponse, data: Data)> in
                 guard let url = URL(string: url) else { return Observable.empty() }
                 var request = URLRequest(url: url)
+                var response: Observable<(response: HTTPURLResponse, data: Data)>!
                 AuthManager.shared.callWithLatestToken { token in
                     request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
                     request.httpMethod = HTTPMethod.GET.rawValue
                     request.timeoutInterval = 30
+                    response = URLSession.shared.rx.response(request: request)
                 }
-                return URLSession.shared.rx.response(request: request)
+                guard let response = response else { return Observable.empty() }
+                return response
             }
             .map { response, data -> AlbumDetails in
                 if 200..<300 ~= response.statusCode {

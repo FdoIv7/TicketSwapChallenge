@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 final class AuthManager {
     
@@ -92,14 +94,18 @@ final class AuthManager {
     }
 
     // Gives us a Valid Token to make API Calls
+    /// REFACTOR THIS!
     public func callWithLatestToken(completion: @escaping(String) -> ()) {
+        print("Huh")
         guard !isRefreshing else {
             // If its refreshing we'll append the completion block
             onRefreshBlocks.append(completion)
             return
         }
         // Maybe this is wrong!
-        guard let token = accessToken else { return }
+        guard let token = accessToken else {
+            return
+        }
         if shouldRefreshToken {
             // Refresh token
             refreshAccessToken { success in
@@ -107,10 +113,12 @@ final class AuthManager {
                     completion(token)
                 }
             }
+            completion(token)
         } else {
             // No need to refresh token
             completion(token)
         }
+        return
     }
 
     // Refresh accessToken if expired
