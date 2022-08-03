@@ -66,7 +66,7 @@ class SongTableViewCell: UITableViewCell {
     private func setConstraints() {
         NSLayoutConstraint.activate([
             trackStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            trackStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
+            trackStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             trackStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             trackStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ])

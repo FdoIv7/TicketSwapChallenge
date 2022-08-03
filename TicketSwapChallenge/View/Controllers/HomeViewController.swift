@@ -47,32 +47,61 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setView()
         setDelegates()
         getNewReleases()
-        setView()
         print("-------------------------------------")
-//        NertworkManager.shared
-//            .getNewReleases()
-//            .subscribe(onNext: { res in
-//                print("Res! = \(res)")
-//            })
-//            .disposed(by: disposeBag)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setViewLook()
     }
 
     private func setView() {
         addSubviews()
         setConstraints()
-        setViewLook()
     }
 
     private func setViewLook() {
-        view.backgroundColor = .paletteBackground
+        view.backgroundColor = .darkBackground
+        setNavBar()
+        //setTabBar()
     }
 
     private func setDelegates() {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+
+    private func setNavBar() {
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.backgroundColor = .darkBackground
+        navigationController?.navigationBar.barTintColor = .darkBackground
+        title = "New Releases"
+    }
+
+    /// REFACTOR THIS INTO ITS OWN CLASS
+//    private func setTabBar() {
+//        let appearance = UITabBarAppearance()
+//        appearance.configureWithOpaqueBackground()
+//        appearance.backgroundColor = .darkBackground
+//        tabBarController?.tabBar.tintColor = .white
+//        tabBarController?.tabBar.standardAppearance = appearance
+//        tabBarController?.tabBar.scrollEdgeAppearance = appearance
+//        tabBarController?.tabBar.isTranslucent = false
+//        tabBarController?.tabBar.layer.shadowOffset = .zero
+//        tabBarController?.tabBar.layer.shadowRadius = 2
+//        tabBarController?.tabBar.layer.shadowColor = UIColor.black.cgColor
+//        tabBarController?.tabBar.layer.shadowOpacity = 0.5
+//        navigationController?.tabBarItem.image = UIImage(systemName: "house")
+//        navigationController?.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
+//    }
 
     private func getNewReleases() {
         homeViewModel
@@ -121,7 +150,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumCollectionViewCell.identifier, for: indexPath) as? AlbumCollectionViewCell else { return UICollectionViewCell() }
-        // Configure our cell using the viewModels
         cell.configure(with: newReleasesViewModels[indexPath.row])
         return cell
     }
@@ -130,7 +158,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         let album = newAlbumReleases[indexPath.row]
         let albumController = AlbumDetailViewController(album: album)
         albumController.title = album.name
-        // Navcontroller is nil in some cases
+        //albumController.hidesBottomBarWhenPushed = false
+        //self.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(albumController, animated: true)
     }
 

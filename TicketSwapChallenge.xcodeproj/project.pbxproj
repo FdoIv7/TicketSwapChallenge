@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		068C3DF30E4F8272C58933DA /* Pods_TicketSwapChallenge_TicketSwapChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F2E9CD274308B9C0C905E3 /* Pods_TicketSwapChallenge_TicketSwapChallengeUITests.framework */; };
+		515DB808C62F27C03F8694C8 /* Pods_TicketSwapChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8A6998A13BA6EB12B903FA /* Pods_TicketSwapChallengeTests.framework */; };
+		971CBAF7ED3C95E67E0E2045 /* Pods_TicketSwapChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C459FE12E658D39B08D3687F /* Pods_TicketSwapChallenge.framework */; };
 		ED503AB22892233000531E26 /* AlbumDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED503AB12892233000531E26 /* AlbumDetails.swift */; };
 		ED503AB528945FA600531E26 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED503AB428945FA600531E26 /* SongTableViewCell.swift */; };
 		ED503AB7289463F500531E26 /* TrackCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED503AB6289463F500531E26 /* TrackCellViewModel.swift */; };
+		ED55152628985CCC00EB343A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55152528985CCC00EB343A /* SearchViewController.swift */; };
 		ED8485012880FC58004F14C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485002880FC58004F14C3 /* AppDelegate.swift */; };
 		ED8485032880FC58004F14C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485022880FC58004F14C3 /* SceneDelegate.swift */; };
-		ED8485052880FC58004F14C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485042880FC58004F14C3 /* ViewController.swift */; };
 		ED84850A2880FC5A004F14C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED8485092880FC5A004F14C3 /* Assets.xcassets */; };
 		ED84850D2880FC5A004F14C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED84850B2880FC5A004F14C3 /* LaunchScreen.storyboard */; };
 		ED8485182880FC5A004F14C3 /* TicketSwapChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8485172880FC5A004F14C3 /* TicketSwapChallengeTests.swift */; };
@@ -34,17 +37,17 @@
 		EDA8FC332890DA1A00BCC75D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8FC322890DA1A00BCC75D /* Utilities.swift */; };
 		EDA8FC352890E56500BCC75D /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8FC342890E56500BCC75D /* AlbumDetailViewController.swift */; };
 		EDA8FC372891EC7D00BCC75D /* AlbumDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8FC362891EC7D00BCC75D /* AlbumDetailViewModel.swift */; };
-		EDB06F2D288CBDBE00A314F8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EDB06F2C288CBDBE00A314F8 /* SDWebImage */; };
-		EDB06F2F288CBDBE00A314F8 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EDB06F2E288CBDBE00A314F8 /* SDWebImageMapKit */; };
 		EDB06F31288CC83800A314F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F30288CC83800A314F8 /* HomeViewModel.swift */; };
 		EDB06F33288CC84300A314F8 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F32288CC84300A314F8 /* SearchViewModel.swift */; };
 		EDB06F35288CC89000A314F8 /* NewReleases.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F34288CC89000A314F8 /* NewReleases.swift */; };
 		EDB06F37288D9FC600A314F8 /* AlbumResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F36288D9FC600A314F8 /* AlbumResponse.swift */; };
 		EDB06F39288DE48700A314F8 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F38288DE48700A314F8 /* AlbumCollectionViewCell.swift */; };
 		EDB06F3B288E035E00A314F8 /* NewReleasesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F3A288E035E00A314F8 /* NewReleasesCellViewModel.swift */; };
-		EDB06F3E288E0A3C00A314F8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EDB06F3D288E0A3B00A314F8 /* RxCocoa */; };
-		EDB06F40288E0A3C00A314F8 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EDB06F3F288E0A3C00A314F8 /* RxRelay */; };
-		EDB06F42288E0A3C00A314F8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EDB06F41288E0A3C00A314F8 /* RxSwift */; };
+		EDEF77872898A76D00E71512 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EDEF77862898A76D00E71512 /* SDWebImage */; };
+		EDEF77892898A76D00E71512 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EDEF77882898A76D00E71512 /* SDWebImageMapKit */; };
+		EDEF778B289975E200E71512 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF778A289975E200E71512 /* TabBarController.swift */; };
+		EDEF778D2899A0BE00E71512 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF778C2899A0BE00E71512 /* SearchResultsViewController.swift */; };
+		EDEF778F2899F61E00E71512 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF778E2899F61E00E71512 /* SearchResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,13 +82,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0AC3B0D941F77C200F1DF7F9 /* Pods-TicketSwapChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketSwapChallenge.release.xcconfig"; path = "Target Support Files/Pods-TicketSwapChallenge/Pods-TicketSwapChallenge.release.xcconfig"; sourceTree = "<group>"; };
+		30F2E9CD274308B9C0C905E3 /* Pods_TicketSwapChallenge_TicketSwapChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketSwapChallenge_TicketSwapChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C527E1342061884B262E3BD /* Pods-TicketSwapChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketSwapChallenge.debug.xcconfig"; path = "Target Support Files/Pods-TicketSwapChallenge/Pods-TicketSwapChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		AE16B9F0068DC8EBCD0A1483 /* Pods-TicketSwapChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketSwapChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-TicketSwapChallengeTests/Pods-TicketSwapChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C459FE12E658D39B08D3687F /* Pods_TicketSwapChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketSwapChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD8A6998A13BA6EB12B903FA /* Pods_TicketSwapChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketSwapChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E745BBA690EA3FA5504FFFD9 /* Pods-TicketSwapChallenge-TicketSwapChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketSwapChallenge-TicketSwapChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-TicketSwapChallenge-TicketSwapChallengeUITests/Pods-TicketSwapChallenge-TicketSwapChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ED503AB12892233000531E26 /* AlbumDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetails.swift; sourceTree = "<group>"; };
 		ED503AB428945FA600531E26 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		ED503AB6289463F500531E26 /* TrackCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCellViewModel.swift; sourceTree = "<group>"; };
+		ED55152528985CCC00EB343A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		ED8484FD2880FC58004F14C3 /* TicketSwapChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketSwapChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8485002880FC58004F14C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED8485022880FC58004F14C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ED8485042880FC58004F14C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ED8485092880FC5A004F14C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED84850C2880FC5A004F14C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED84850E2880FC5A004F14C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +127,11 @@
 		EDB06F36288D9FC600A314F8 /* AlbumResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumResponse.swift; sourceTree = "<group>"; };
 		EDB06F38288DE48700A314F8 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		EDB06F3A288E035E00A314F8 /* NewReleasesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesCellViewModel.swift; sourceTree = "<group>"; };
+		EDEF778A289975E200E71512 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		EDEF778C2899A0BE00E71512 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		EDEF778E2899F61E00E71512 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		EF563F1CB6650BB591C7CADF /* Pods-TicketSwapChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketSwapChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-TicketSwapChallengeTests/Pods-TicketSwapChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		F78BFB7F29D13B2DE152F56D /* Pods-TicketSwapChallenge-TicketSwapChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketSwapChallenge-TicketSwapChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-TicketSwapChallenge-TicketSwapChallengeUITests/Pods-TicketSwapChallenge-TicketSwapChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,12 +139,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDB06F42288E0A3C00A314F8 /* RxSwift in Frameworks */,
-				EDB06F40288E0A3C00A314F8 /* RxRelay in Frameworks */,
-				EDB06F2D288CBDBE00A314F8 /* SDWebImage in Frameworks */,
-				EDB06F2F288CBDBE00A314F8 /* SDWebImageMapKit in Frameworks */,
-				EDB06F3E288E0A3C00A314F8 /* RxCocoa in Frameworks */,
+				EDEF77872898A76D00E71512 /* SDWebImage in Frameworks */,
 				ED84855C2884F403004F14C3 /* SpotifyiOS.xcframework in Frameworks */,
+				EDEF77892898A76D00E71512 /* SDWebImageMapKit in Frameworks */,
+				971CBAF7ED3C95E67E0E2045 /* Pods_TicketSwapChallenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				515DB808C62F27C03F8694C8 /* Pods_TicketSwapChallengeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,12 +158,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				068C3DF30E4F8272C58933DA /* Pods_TicketSwapChallenge_TicketSwapChallengeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C5B01E4DF226DFF1CF891D6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C527E1342061884B262E3BD /* Pods-TicketSwapChallenge.debug.xcconfig */,
+				0AC3B0D941F77C200F1DF7F9 /* Pods-TicketSwapChallenge.release.xcconfig */,
+				F78BFB7F29D13B2DE152F56D /* Pods-TicketSwapChallenge-TicketSwapChallengeUITests.debug.xcconfig */,
+				E745BBA690EA3FA5504FFFD9 /* Pods-TicketSwapChallenge-TicketSwapChallengeUITests.release.xcconfig */,
+				AE16B9F0068DC8EBCD0A1483 /* Pods-TicketSwapChallengeTests.debug.xcconfig */,
+				EF563F1CB6650BB591C7CADF /* Pods-TicketSwapChallengeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		ED503AB328945F6000531E26 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +195,7 @@
 				ED8485202880FC5A004F14C3 /* TicketSwapChallengeUITests */,
 				ED8484FE2880FC58004F14C3 /* Products */,
 				ED8485432884F070004F14C3 /* Frameworks */,
+				C5B01E4DF226DFF1CF891D6E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,6 +247,9 @@
 			children = (
 				ED8485582884F3EF004F14C3 /* SpotifyiOS.framework */,
 				ED8485592884F3EF004F14C3 /* SpotifyiOS.xcframework */,
+				C459FE12E658D39B08D3687F /* Pods_TicketSwapChallenge.framework */,
+				30F2E9CD274308B9C0C905E3 /* Pods_TicketSwapChallenge_TicketSwapChallengeUITests.framework */,
+				DD8A6998A13BA6EB12B903FA /* Pods_TicketSwapChallengeTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -241,6 +273,7 @@
 				EDB06F34288CC89000A314F8 /* NewReleases.swift */,
 				EDB06F36288D9FC600A314F8 /* AlbumResponse.swift */,
 				ED503AB12892233000531E26 /* AlbumDetails.swift */,
+				EDEF778E2899F61E00E71512 /* SearchResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,11 +304,13 @@
 			isa = PBXGroup;
 			children = (
 				ED8485472884F13D004F14C3 /* HomeViewController.swift */,
-				ED8485042880FC58004F14C3 /* ViewController.swift */,
 				ED84856428862728004F14C3 /* ArtistDetailViewController.swift */,
 				ED8485662886277F004F14C3 /* AuthViewController.swift */,
 				ED84857228862AC0004F14C3 /* WelcomeViewController.swift */,
 				EDA8FC342890E56500BCC75D /* AlbumDetailViewController.swift */,
+				ED55152528985CCC00EB343A /* SearchViewController.swift */,
+				EDEF778A289975E200E71512 /* TabBarController.swift */,
+				EDEF778C2899A0BE00E71512 /* SearchResultsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -305,10 +340,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED8485272880FC5A004F14C3 /* Build configuration list for PBXNativeTarget "TicketSwapChallenge" */;
 			buildPhases = (
+				0C7C7EACE605C749F352FF27 /* [CP] Check Pods Manifest.lock */,
 				ED8484F92880FC58004F14C3 /* Sources */,
 				ED8484FA2880FC58004F14C3 /* Frameworks */,
 				ED8484FB2880FC58004F14C3 /* Resources */,
 				ED84855E2884F403004F14C3 /* Embed Frameworks */,
+				198FF502572D4CC187A156EC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,11 +353,8 @@
 			);
 			name = TicketSwapChallenge;
 			packageProductDependencies = (
-				EDB06F2C288CBDBE00A314F8 /* SDWebImage */,
-				EDB06F2E288CBDBE00A314F8 /* SDWebImageMapKit */,
-				EDB06F3D288E0A3B00A314F8 /* RxCocoa */,
-				EDB06F3F288E0A3C00A314F8 /* RxRelay */,
-				EDB06F41288E0A3C00A314F8 /* RxSwift */,
+				EDEF77862898A76D00E71512 /* SDWebImage */,
+				EDEF77882898A76D00E71512 /* SDWebImageMapKit */,
 			);
 			productName = TicketSwapChallenge;
 			productReference = ED8484FD2880FC58004F14C3 /* TicketSwapChallenge.app */;
@@ -330,6 +364,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED84852A2880FC5A004F14C3 /* Build configuration list for PBXNativeTarget "TicketSwapChallengeTests" */;
 			buildPhases = (
+				C0E557CD2223AB8AEF881937 /* [CP] Check Pods Manifest.lock */,
 				ED84850F2880FC5A004F14C3 /* Sources */,
 				ED8485102880FC5A004F14C3 /* Frameworks */,
 				ED8485112880FC5A004F14C3 /* Resources */,
@@ -348,9 +383,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED84852D2880FC5A004F14C3 /* Build configuration list for PBXNativeTarget "TicketSwapChallengeUITests" */;
 			buildPhases = (
+				05EF8914BBADB94D81DE4617 /* [CP] Check Pods Manifest.lock */,
 				ED8485192880FC5A004F14C3 /* Sources */,
 				ED84851A2880FC5A004F14C3 /* Frameworks */,
 				ED84851B2880FC5A004F14C3 /* Resources */,
+				8BD739F2A66AD3A65D56F4FD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -396,8 +433,7 @@
 			);
 			mainGroup = ED8484F42880FC58004F14C3;
 			packageReferences = (
-				EDB06F2B288CBDBE00A314F8 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				EDB06F3C288E0A3B00A314F8 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				EDEF77852898A76D00E71512 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = ED8484FE2880FC58004F14C3 /* Products */;
 			projectDirPath = "";
@@ -436,6 +472,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		05EF8914BBADB94D81DE4617 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TicketSwapChallenge-TicketSwapChallengeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0C7C7EACE605C749F352FF27 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TicketSwapChallenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		198FF502572D4CC187A156EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TicketSwapChallenge/Pods-TicketSwapChallenge-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TicketSwapChallenge/Pods-TicketSwapChallenge-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TicketSwapChallenge/Pods-TicketSwapChallenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BD739F2A66AD3A65D56F4FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TicketSwapChallenge-TicketSwapChallengeUITests/Pods-TicketSwapChallenge-TicketSwapChallengeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TicketSwapChallenge-TicketSwapChallengeUITests/Pods-TicketSwapChallenge-TicketSwapChallengeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TicketSwapChallenge-TicketSwapChallengeUITests/Pods-TicketSwapChallenge-TicketSwapChallengeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0E557CD2223AB8AEF881937 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TicketSwapChallengeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ED8484F92880FC58004F14C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -444,13 +583,16 @@
 				EDB06F39288DE48700A314F8 /* AlbumCollectionViewCell.swift in Sources */,
 				ED8485752889A0B1004F14C3 /* AuthResponse.swift in Sources */,
 				ED84856C288627C5004F14C3 /* NetworkManager.swift in Sources */,
+				EDEF778B289975E200E71512 /* TabBarController.swift in Sources */,
+				EDEF778F2899F61E00E71512 /* SearchResponse.swift in Sources */,
 				EDA8FC372891EC7D00BCC75D /* AlbumDetailViewModel.swift in Sources */,
+				EDEF778D2899A0BE00E71512 /* SearchResultsViewController.swift in Sources */,
 				EDA8FC352890E56500BCC75D /* AlbumDetailViewController.swift in Sources */,
 				EDB06F3B288E035E00A314F8 /* NewReleasesCellViewModel.swift in Sources */,
 				ED8485482884F13D004F14C3 /* HomeViewController.swift in Sources */,
 				ED503AB528945FA600531E26 /* SongTableViewCell.swift in Sources */,
+				ED55152628985CCC00EB343A /* SearchViewController.swift in Sources */,
 				ED84856A288627BA004F14C3 /* AuthManager.swift in Sources */,
-				ED8485052880FC58004F14C3 /* ViewController.swift in Sources */,
 				ED8485012880FC58004F14C3 /* AppDelegate.swift in Sources */,
 				EDB06F37288D9FC600A314F8 /* AlbumResponse.swift in Sources */,
 				EDA8FC332890DA1A00BCC75D /* Utilities.swift in Sources */,
@@ -632,6 +774,7 @@
 		};
 		ED8485282880FC5A004F14C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C527E1342061884B262E3BD /* Pods-TicketSwapChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -670,6 +813,7 @@
 		};
 		ED8485292880FC5A004F14C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AC3B0D941F77C200F1DF7F9 /* Pods-TicketSwapChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -707,6 +851,7 @@
 		};
 		ED84852B2880FC5A004F14C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE16B9F0068DC8EBCD0A1483 /* Pods-TicketSwapChallengeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -727,6 +872,7 @@
 		};
 		ED84852C2880FC5A004F14C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF563F1CB6650BB591C7CADF /* Pods-TicketSwapChallengeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -747,6 +893,7 @@
 		};
 		ED84852E2880FC5A004F14C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F78BFB7F29D13B2DE152F56D /* Pods-TicketSwapChallenge-TicketSwapChallengeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -765,6 +912,7 @@
 		};
 		ED84852F2880FC5A004F14C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E745BBA690EA3FA5504FFFD9 /* Pods-TicketSwapChallenge-TicketSwapChallengeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -823,7 +971,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EDB06F2B288CBDBE00A314F8 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		EDEF77852898A76D00E71512 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -831,41 +979,18 @@
 				kind = branch;
 			};
 		};
-		EDB06F3C288E0A3B00A314F8 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EDB06F2C288CBDBE00A314F8 /* SDWebImage */ = {
+		EDEF77862898A76D00E71512 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EDB06F2B288CBDBE00A314F8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = EDEF77852898A76D00E71512 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
-		EDB06F2E288CBDBE00A314F8 /* SDWebImageMapKit */ = {
+		EDEF77882898A76D00E71512 /* SDWebImageMapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EDB06F2B288CBDBE00A314F8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = EDEF77852898A76D00E71512 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
-		};
-		EDB06F3D288E0A3B00A314F8 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EDB06F3C288E0A3B00A314F8 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		EDB06F3F288E0A3C00A314F8 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EDB06F3C288E0A3B00A314F8 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		EDB06F41288E0A3C00A314F8 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EDB06F3C288E0A3B00A314F8 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

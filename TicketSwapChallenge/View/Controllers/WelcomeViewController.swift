@@ -71,13 +71,16 @@ final class WelcomeViewController: UIViewController {
             present(alert, animated: true)
             return
         }
+        // Refactor the tabbarcontroller
+        let tabBarController = TabBarController()
         let homeViewController = HomeViewController()
-        let navController = UINavigationController(rootViewController: homeViewController)
-        homeViewController.modalPresentationStyle = .fullScreen
-        //navController.modalTransitionStyle = .fullScreen
-        //present(homeViewController, animated: true)
-        present(navController ,animated: true)
-        //navigationController?.pushViewController(homeViewController, animated: true)
-        
+        let searchViewController = SearchViewController()
+
+        let homeNavController = UINavigationController(rootViewController: homeViewController)
+        let searchNavController = UINavigationController(rootViewController: searchViewController)
+        //tabBarController.viewControllers = [homeNavController, searchNavController]
+        //homeViewController.modalPresentationStyle = .fullScreen
+        tabBarController.modalPresentationStyle = .fullScreen
+        present(tabBarController ,animated: true)
     }
 }

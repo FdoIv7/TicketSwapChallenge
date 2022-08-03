@@ -87,7 +87,9 @@ final class AuthManager {
     
     private func cacheToken(with result: AuthResponse) {
         UserDefaults.standard.setValue(result.accessToken, forKey: "access_token")
-        UserDefaults.standard.setValue(result.refreshToken, forKey: "refresh_token")
+        if let refreshToken = refreshToken {
+            UserDefaults.standard.setValue(refreshToken , forKey: "refresh_token")
+        }
         // Current time the user logged in + the number of seconds it expires in
         UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expiration)), forKey: "expirationDate")
          
@@ -96,25 +98,19 @@ final class AuthManager {
     // Gives us a Valid Token to make API Calls
     /// REFACTOR THIS!
     public func callWithLatestToken(completion: @escaping(String) -> ()) {
-        print("Huh")
         guard !isRefreshing else {
             // If its refreshing we'll append the completion block
             onRefreshBlocks.append(completion)
             return
         }
-        // Maybe this is wrong!
-        guard let token = accessToken else {
-            return
-        }
         if shouldRefreshToken {
             // Refresh token
-            refreshAccessToken { success in
-                if success {
+            refreshAccessToken { [weak self] success in
+                if success,   let token = self?.accessToken {
                     completion(token)
                 }
             }
-            completion(token)
-        } else {
+        } else if let token = accessToken {
             // No need to refresh token
             completion(token)
         }
@@ -125,8 +121,8 @@ final class AuthManager {
     public func refreshAccessToken(completion: ((Bool) -> ())?) {
         // Check if we are not refreshing so we dont do it twice
         // Made completion optional to be able to pass nil
-        if isRefreshing { return }
-        if shouldRefreshToken {
+        guard !isRefreshing else { return  }
+        guard shouldRefreshToken else {
             completion?(true)
             return
         }
@@ -149,7 +145,7 @@ final class AuthManager {
         let data = basicToken.data(using: .utf8)
         guard let base64String = data?.base64EncodedString() else {
             completion?(false)
-            print("Failure to get base64")
+            print("Failure to get base  64")
             return
         }
         request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
@@ -165,14 +161,14 @@ final class AuthManager {
             do {
                 let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                 // We got the token
-                self?.onRefreshBlocks.forEach({ completion in
-                    // We are executing each closure on the closure array passing the latest token
-                    completion(result.accessToken)
-                })
+//                self?.onRefreshBlocks.forEach({ completion in
+//                    // We are executing each closure on the closure array passing the latest token
+//                    completion(result.accessToken)
+//                })
+                self?.onRefreshBlocks.forEach({ $0(result.accessToken)} )
                 self?.onRefreshBlocks.removeAll() // Remove all closures in the array
                 self?.cacheToken(with: result)
                 completion?(true)
-                // API Token needs to be encoded with multipart form APIData - Not in JSON
             } catch {
                 print(error)
             }

@@ -63,7 +63,7 @@ final class AlbumDetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private lazy var releaseDateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir", size: 12)
@@ -71,7 +71,7 @@ final class AlbumDetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private lazy var songsTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(SongTableViewCell.self, forCellReuseIdentifier: SongTableViewCell.identifier)
@@ -105,6 +105,12 @@ final class AlbumDetailViewController: UIViewController {
     
     private func setViewLook() {
         setNavBar()
+        //setTabBar()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
 
     private func setNavBar() {
@@ -115,6 +121,15 @@ final class AlbumDetailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         view.backgroundColor = .darkBackground
     }
+
+//    private func setTabBar() {
+//        tabBarController?.tabBar.isTranslucent = false
+//        tabBarController?.tabBar.backgroundColor = .darkBackground
+//        tabBarController?.tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        tabBarController?.tabBar.layer.shadowRadius = 2
+//        tabBarController?.tabBar.layer.shadowColor = UIColor.black.cgColor
+//        tabBarController?.tabBar.layer.shadowOpacity = 0.5
+//    }
     
     private func setConstraints() {
         let safeGuide = view.safeAreaLayoutGuide
@@ -147,14 +162,14 @@ final class AlbumDetailViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
-
+    
     private func createTrackViewModels(with songs: [Song]) {
         for track in songs {
             let viewModel = TrackCellViewModel(artistName: track.artists.first?.name ?? "", trackName: track.name)
             self.trackCellViewModels.append(viewModel)
         }
     }
-
+    
     private func setAlbumView(with albumDetails: AlbumDetails) {
         guard let url = URL(string: albumDetails.images.first?.url ?? "") else { return }
         let year = Utilities.getYear(for: album.releaseDate)
@@ -178,7 +193,7 @@ extension AlbumDetailViewController: UITableViewDelegate, UITableViewDataSource 
         cell.configure(with: viewModel)
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }

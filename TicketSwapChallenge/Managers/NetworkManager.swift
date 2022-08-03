@@ -92,7 +92,7 @@ final class NertworkManager {
                     throw RxCocoaURLError.httpRequestFailed(response: response, data: data)
                 }
             }
-    } 
+    }
     
     private func createRequest(url: URL?, method: HTTPMethod, completion: @escaping(URLRequest) -> ()) {
         // We need to check the token is the latest one everytime we make an APICall
