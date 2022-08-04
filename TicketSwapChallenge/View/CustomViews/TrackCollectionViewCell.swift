@@ -15,7 +15,7 @@ class TrackCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .textColor
-        label.font = UIFont(name: "Avenir", size: 12)
+        label.font = UIFont(name: Constants.Fonts.avenir, size: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -23,7 +23,7 @@ class TrackCollectionViewCell: UICollectionViewCell {
     private lazy var trackNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont(name: "Avenir Heavy", size: 16)
+        label.font = UIFont(name: Constants.Fonts.heavy, size: 16)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

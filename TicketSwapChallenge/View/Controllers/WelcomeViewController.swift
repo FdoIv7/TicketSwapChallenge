@@ -14,7 +14,10 @@ final class WelcomeViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(logInTapped), for: .touchUpInside)
         button.backgroundColor = .white
-        button.setTitle("Sign in with Spotify", for: .normal)
+        button.layer.cornerRadius = 10
+        button.titleLabel?.font = UIFont(name: Constants.Fonts.avenir, size: 20)
+        button.clipsToBounds = true
+        button.setTitle(Constants.UIText.signIn, for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.setTitleColor(UIColor.black, for: .normal)
         return button
@@ -42,14 +45,14 @@ final class WelcomeViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Ticket Swap"
+        title = Constants.Titles.ticketSwap
     }
     
     private func setView() {
         addSubviews()
         setConstraints()
         setNavBar()
-        view.backgroundColor = .systemGreen
+        view.backgroundColor = .ticketSwapBlue
     }
 
     @objc private func logInTapped() {
@@ -66,20 +69,13 @@ final class WelcomeViewController: UIViewController {
     private func handleSignIn(signedIn: Bool) {
          // If we successfully sign in
         if !signedIn {
-            let alert = UIAlertController(title: "Error", message: "Something went wrong when signing in", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: Constants.UIText.error, message: Constants.UIText.errorSignIn, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: Constants.UIText.dismiss, style: .cancel, handler: nil))
             present(alert, animated: true)
             return
         }
-        // Refactor the tabbarcontroller
         let tabBarController = TabBarController()
-        let homeViewController = HomeViewController()
-        let searchViewController = SearchViewController()
 
-        let homeNavController = UINavigationController(rootViewController: homeViewController)
-        let searchNavController = UINavigationController(rootViewController: searchViewController)
-        //tabBarController.viewControllers = [homeNavController, searchNavController]
-        //homeViewController.modalPresentationStyle = .fullScreen
         tabBarController.modalPresentationStyle = .fullScreen
         present(tabBarController ,animated: true)
     }

@@ -13,7 +13,8 @@ final class AlbumDetailViewModel {
     
     func getAlbumDetails(for album: Album) -> Observable<AlbumDetails> {
         // Update URL
-        let albumURLString = Constants.Network.baseURL + "/albums/" + album.id
+        let albumsEndpoint = "/albums/"
+        let albumURLString = Constants.Network.baseURL + albumsEndpoint + album.id
         return Observable
             .just(albumURLString)
             .flatMap { url -> Observable<(response: HTTPURLResponse, data: Data)> in
@@ -32,7 +33,6 @@ final class AlbumDetailViewModel {
             .map { response, data -> AlbumDetails in
                 if 200..<300 ~= response.statusCode {
                     let json = try JSONSerialization.jsonObject(with: data)
-                    print("JSON = \(json)")
                     return try JSONDecoder().decode(AlbumDetails.self, from: data)
                 } else {
                     throw RxCocoaURLError.httpRequestFailed(response: response, data: data)

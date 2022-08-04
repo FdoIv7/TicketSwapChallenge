@@ -28,4 +28,45 @@ struct Constants {
         static let shadowRadius: CGFloat = 7
         static let shadowOpacity: Float = 0.7
     }
+
+    struct UIText {
+        static let ok = "Ok"
+        static let wrong = "Something went wrong"
+        static let popularSongs = "Popular Songs"
+        static let albums = "Albums"
+        static let errorAlbums = "Error getting albums"
+        static let errorSongs = "Error getting songs"
+        static let errorNewReleases = "Error getting new releases"
+        static let error = "Error"
+        static let errorSignIn = "Something went wrong when signing in"
+        static let dismiss = "Dismiss"
+        static let signIn = "Sign in with Spotify"
+        static let errorAlbumDetails = "Error getting album details"
+        static let noResults = "No results, please try again."
+        static let enterArtist = "Enter an artist name"
+        static let searchArtists = "Search Artists"
+    }
+
+    struct Titles {
+        static let newReleases = "New Releases"
+        static let ticketSwap = "Ticket Swap"
+        static let search = "Search"
+    }
+    struct Images {
+        static let musician = "musician"
+        static let photo = "photo"
+        static let magnifying = "magnifyingglass.circle"
+        static let selectedMagnifying = "magnifyingglass.circle.fill"
+        static let house = "house"
+        static let selectedHouse = "house.fill"
+    }
+
+    struct IDs {
+        static let cell = "cell"
+    }
+
+    struct Fonts {
+        static let heavy = "Avenir Heavy"
+        static let avenir = "Avenir"   
+    }
 }

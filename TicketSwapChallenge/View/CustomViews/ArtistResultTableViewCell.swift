@@ -14,7 +14,7 @@ class ArtistResultTableViewCell: UITableViewCell {
 
     private lazy var artistImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "photo")
+        imageView.image = UIImage(systemName: Constants.Images.photo)
         imageView.tintColor = .white
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -23,7 +23,7 @@ class ArtistResultTableViewCell: UITableViewCell {
     private lazy var artistNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont(name: "Avenir Heavy", size: 16)
+        label.font = UIFont(name: Constants.Fonts.heavy, size: 16)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -78,7 +78,7 @@ class ArtistResultTableViewCell: UITableViewCell {
             artistImage.sd_setImage(with: imageURL)
             artistImage.contentMode = .scaleToFill
         } else {
-            artistImage.image = UIImage(named: "musician")
+            artistImage.image = UIImage(named: Constants.Images.musician)
             artistImage.contentMode = .scaleAspectFill
         }
         artistNameLabel.text = viewModel.artist

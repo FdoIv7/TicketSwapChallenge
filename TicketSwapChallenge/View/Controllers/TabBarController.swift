@@ -19,13 +19,13 @@ final class TabBarController: UITabBarController {
         let homeViewController = HomeViewController()
         let searchViewController = SearchViewController()
         
-        homeViewController.title = "New Releases"
-        homeViewController.tabBarItem.image = UIImage(systemName: "house")
-        homeViewController.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
+        homeViewController.title = Constants.Titles.newReleases
+        homeViewController.tabBarItem.image = UIImage(systemName: Constants.Images.house)
+        homeViewController.tabBarItem.selectedImage = UIImage(systemName: Constants.Images.selectedHouse)
 
-        searchViewController.title = "Search"
-        searchViewController.tabBarItem.image = UIImage(systemName: "magnifyingglass.circle")
-        searchViewController.tabBarItem.selectedImage = UIImage(systemName: "magnifyingglass.circle.fill")
+        searchViewController.title = Constants.Titles.search
+        searchViewController.tabBarItem.image = UIImage(systemName: Constants.Images.magnifying)
+        searchViewController.tabBarItem.selectedImage = UIImage(systemName: Constants.Images.selectedMagnifying)
 
         let navHomeController = UINavigationController(rootViewController: homeViewController)
         let searchNavController = UINavigationController(rootViewController: searchViewController)

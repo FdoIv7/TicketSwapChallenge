@@ -10,20 +10,10 @@ import RxSwift
 import RxCocoa
 
 final class HomeViewModel {
-    
-    //    public func getNewReleases(completion: @escaping(Result<NewReleases, Error>) -> ()) {
-    //        NertworkManager.shared.getNewReleases { result in
-    //            switch result {
-    //            case .success(let newRelease):
-    //                completion(.success(newRelease))
-    //            case .failure(let error):
-    //                completion(.failure(error))
-    //            }
-    //        }
-    //    }
 
     func getNewReleases() -> Observable<NewReleases> {
-        let newReleasesURLString = Constants.Network.baseURL + "/browse/new-releases?limit=40"
+        let newReleasesEndpoint = "/browse/new-releases?limit=40"
+        let newReleasesURLString = Constants.Network.baseURL + newReleasesEndpoint
         return Observable
             .just(newReleasesURLString)
             .flatMap { url -> Observable<(response: HTTPURLResponse, data: Data)> in

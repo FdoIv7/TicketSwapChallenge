@@ -96,7 +96,6 @@ final class AuthManager {
     }
 
     // Gives us a Valid Token to make API Calls
-    /// REFACTOR THIS!
     public func callWithLatestToken(completion: @escaping(String) -> ()) {
         guard !isRefreshing else {
             // If its refreshing we'll append the completion block
@@ -145,7 +144,7 @@ final class AuthManager {
         let data = basicToken.data(using: .utf8)
         guard let base64String = data?.base64EncodedString() else {
             completion?(false)
-            print("Failure to get base  64")
+            print("Failure to get base 64")
             return
         }
         request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
@@ -160,11 +159,6 @@ final class AuthManager {
             // We got data
             do {
                 let result = try JSONDecoder().decode(AuthResponse.self, from: data)
-                // We got the token
-//                self?.onRefreshBlocks.forEach({ completion in
-//                    // We are executing each closure on the closure array passing the latest token
-//                    completion(result.accessToken)
-//                })
                 self?.onRefreshBlocks.forEach({ $0(result.accessToken)} )
                 self?.onRefreshBlocks.removeAll() // Remove all closures in the array
                 self?.cacheToken(with: result)

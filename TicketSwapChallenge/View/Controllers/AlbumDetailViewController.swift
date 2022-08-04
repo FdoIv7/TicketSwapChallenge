@@ -22,15 +22,14 @@ final class AlbumDetailViewController: UIViewController {
         super.viewDidLoad()
         setView()
         getAlbumDetails()
-        songsTableView.delegate = self
-        songsTableView.dataSource = self
+        setDelegates()
     }
     
     private lazy var albumImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "photo")
+        imageView.image = UIImage(systemName: Constants.Images.photo)
         imageView.tintColor = .white
         imageView.layer.shadowRadius = Constants.Layout.shadowRadius
         imageView.layer.shadowOpacity = Constants.Layout.shadowOpacity
@@ -50,14 +49,14 @@ final class AlbumDetailViewController: UIViewController {
     private lazy var artistLabel: UILabel = {
         let label = UILabel()
         label.textColor = .textColor
-        label.font = UIFont(name: "Avenir Heavy", size: 15)
+        label.font = UIFont(name: Constants.Fonts.heavy, size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var albumNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir Heavy", size: 20)
+        label.font = UIFont(name: Constants.Fonts.heavy, size: 20)
         label.textColor = .white
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +65,7 @@ final class AlbumDetailViewController: UIViewController {
     
     private lazy var releaseDateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir", size: 12)
+        label.font = UIFont(name: Constants.Fonts.avenir, size: 12)
         label.textColor = .textColor
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -90,7 +89,12 @@ final class AlbumDetailViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    private func setDelegates() {
+        songsTableView.delegate = self
+        songsTableView.dataSource = self
+    }
+
     private func setView() {
         addSubviews()
         setConstraints()
@@ -105,7 +109,6 @@ final class AlbumDetailViewController: UIViewController {
     
     private func setViewLook() {
         setNavBar()
-        //setTabBar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -121,7 +124,7 @@ final class AlbumDetailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         view.backgroundColor = .darkBackground
     }
-    
+
     private func setConstraints() {
         let safeGuide = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
@@ -148,10 +151,19 @@ final class AlbumDetailViewController: UIViewController {
                 self.albumTracks = album.tracks.items
                 self.createTrackViewModels(with: self.albumTracks)
                 self.setAlbumView(with: album)
-            }, onError: { error in
-                print("Error Album Detail = \(error.localizedDescription) ")
+            }, onError: { [weak self] error in
+                let message = Constants.UIText.errorAlbumDetails
+                self?.showError(message: message)
+                print("Error Album Details = \(error.localizedDescription) ")
             })
             .disposed(by: disposeBag)
+    }
+
+    private func showError(message: String) {
+        let alert = UIAlertController(title: Constants.UIText.wrong, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: Constants.UIText.ok, style: .default)
+        alert.addAction(dismissAction)
+        present(alert, animated: true, completion: nil)
     }
     
     private func createTrackViewModels(with songs: [Song]) {
@@ -176,7 +188,7 @@ extension AlbumDetailViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return albumTracks.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SongTableViewCell.identifier, for: indexPath) as?
                 SongTableViewCell else { return UITableViewCell() }
@@ -184,7 +196,7 @@ extension AlbumDetailViewController: UITableViewDelegate, UITableViewDataSource 
         cell.configure(with: viewModel)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }

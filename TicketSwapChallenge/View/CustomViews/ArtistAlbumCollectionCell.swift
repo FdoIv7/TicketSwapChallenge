@@ -13,7 +13,7 @@ class ArtistAlbumCollectionCell: UICollectionViewCell {
     
     private lazy var coverImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "photo")
+        imageView.image = UIImage(systemName: Constants.Images.photo)
         imageView.contentMode = .scaleAspectFill
         imageView.tintColor = .white
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,8 +22,8 @@ class ArtistAlbumCollectionCell: UICollectionViewCell {
     
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
-        nameLabel.font = UIFont(name: "Avenir Heavy", size: 15)
-        nameLabel.textColor = .textColor
+        nameLabel.font = UIFont(name: Constants.Fonts.heavy, size: 15)
+        nameLabel.textColor = .white
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.numberOfLines = 0
         nameLabel.adjustsFontSizeToFitWidth = true

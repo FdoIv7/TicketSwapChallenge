@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 final class AuthViewController: UIViewController {
-    
+
     private let webView: WKWebView = {
         let preferences = WKWebpagePreferences()
         preferences.allowsContentJavaScript = true
@@ -21,7 +21,7 @@ final class AuthViewController: UIViewController {
     }()
 
     public var isSignedIn: ((Bool) -> ())?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
@@ -29,16 +29,16 @@ final class AuthViewController: UIViewController {
         guard let url = AuthManager.shared.signInURL else { return }
         webView.load(URLRequest(url: url))
     }
-    
+
     private func setView() {
         addSubviews()
         setConstraints()
     }
-    
+
     private func addSubviews() {
         view.addSubview(webView)
     }
-    
+
     private func setConstraints() {
         NSLayoutConstraint.activate([
             webView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -50,7 +50,6 @@ final class AuthViewController: UIViewController {
 }
 
 extension AuthViewController: WKNavigationDelegate {
-
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         guard let url = webView.url else { return }
         // Get code that Spotify gives us for accessToken
@@ -60,7 +59,6 @@ extension AuthViewController: WKNavigationDelegate {
         })
         guard let spotifyCode = code?.value else { return }
         webView.isHidden = true
-        print("Code = \(spotifyCode)")
         AuthManager.shared.getCodeForToken(code: spotifyCode) { [weak self] success in
             DispatchQueue.main.async {
                 self?.navigationController?.popToRootViewController(animated: true)

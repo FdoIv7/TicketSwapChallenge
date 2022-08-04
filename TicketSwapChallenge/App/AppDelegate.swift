@@ -11,20 +11,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    //lazy var rootViewController = ViewController()
     let homeViewController = HomeViewController()
     let searchViewController = SearchViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        let homeNavController = UINavigationController(rootViewController: homeViewController)
-//        let searchNavController = UINavigationController(rootViewController: searchViewController)
         let window = UIWindow(frame: UIScreen.main.bounds)
         if AuthManager.shared.isSigned {
-            // Instead of waiting for an APICall to refresh the token, as soon as we are logedIn we refresh the token
-            //AuthManager.shared.refreshAccessToken(completion: nil)
+            AuthManager.shared.refreshAccessToken(completion: nil)
             let tabController = TabBarController()
-            //tabController.viewControllers = [homeNavController, searchNavController]
-            //searchNavController.tabBarItem.image = UIImage(systemName: "photo")
             window.rootViewController = tabController
         } else {
             let navController = UINavigationController(rootViewController: WelcomeViewController())

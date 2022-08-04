@@ -29,13 +29,6 @@ class HomeViewController: UIViewController {
         return searchBar
     }()
 
-    private lazy var spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView()
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.hidesWhenStopped = true
-        return spinner
-    }()
-
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -50,7 +43,6 @@ class HomeViewController: UIViewController {
         setView()
         setDelegates()
         getNewReleases()
-        print("-------------------------------------")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +58,6 @@ class HomeViewController: UIViewController {
     private func setViewLook() {
         view.backgroundColor = .darkBackground
         setNavBar()
-        //setTabBar()
     }
 
     private func setDelegates() {
@@ -83,25 +74,8 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.backgroundColor = .darkBackground
         navigationController?.navigationBar.barTintColor = .darkBackground
-        title = "New Releases"
+        title = Constants.Titles.newReleases
     }
-
-    /// REFACTOR THIS INTO ITS OWN CLASS
-//    private func setTabBar() {
-//        let appearance = UITabBarAppearance()
-//        appearance.configureWithOpaqueBackground()
-//        appearance.backgroundColor = .darkBackground
-//        tabBarController?.tabBar.tintColor = .white
-//        tabBarController?.tabBar.standardAppearance = appearance
-//        tabBarController?.tabBar.scrollEdgeAppearance = appearance
-//        tabBarController?.tabBar.isTranslucent = false
-//        tabBarController?.tabBar.layer.shadowOffset = .zero
-//        tabBarController?.tabBar.layer.shadowRadius = 2
-//        tabBarController?.tabBar.layer.shadowColor = UIColor.black.cgColor
-//        tabBarController?.tabBar.layer.shadowOpacity = 0.5
-//        navigationController?.tabBarItem.image = UIImage(systemName: "house")
-//        navigationController?.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
-//    }
 
     private func getNewReleases() {
         homeViewModel
@@ -110,21 +84,30 @@ class HomeViewController: UIViewController {
             .subscribe(onNext: { [weak self] res in
                 guard let self = self else { return }
                 self.newAlbumReleases = res.albums.items
-                // set our view models
-                for album in self.newAlbumReleases {
-                    guard let imageURL = URL(string: album.images.first?.url ?? "") else { return }
-                    let viewModel = AlbumCellViewModel(artist: album.artists.first?.name ?? "-", imageURL: imageURL, albumName: album.name)
-                    self.newReleasesViewModels.append(viewModel)
-                    //print("View Models async = \(self.newReleasesViewModels)")
-                    self.collectionView.reloadData()
-                }
-            }, onError: { error in
-                // Update UI with error
-                print("error home view controller = \(error)")
+                self.setViewModels(with: self.newAlbumReleases)
+            }, onError: { [weak self] error in
+                print("Error getting new releases = \(error)")
+                let message = Constants.UIText.errorNewReleases
+                self?.showError(message: message)
             })
             .disposed(by: disposeBag)
-        
-        //print("View Models = \(newReleasesViewModels)")
+    }
+
+    private func setViewModels(with albums: [Album]) {
+        newReleasesViewModels.removeAll()
+        for album in albums {
+            let imageURL = URL(string: album.images.first?.url ?? "")
+            let viewModel = AlbumCellViewModel(artist: album.artists.first?.name ?? "-", imageURL: imageURL, albumName: album.name)
+            self.newReleasesViewModels.append(viewModel)
+            self.collectionView.reloadData()
+        }
+    }
+
+    private func showError(message: String) {
+        let alert = UIAlertController(title: Constants.UIText.wrong, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: Constants.UIText.ok, style: .default)
+        alert.addAction(dismissAction)
+        present(alert, animated: true, completion: nil)
     }
 
     private func setConstraints() {
@@ -139,7 +122,6 @@ class HomeViewController: UIViewController {
 
     private func addSubviews() {
         view.addSubview(collectionView)
-        view.addSubview(spinner)
     }
 }
 
@@ -158,8 +140,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         let album = newAlbumReleases[indexPath.row]
         let albumController = AlbumDetailViewController(album: album)
         albumController.title = album.name
-        //albumController.hidesBottomBarWhenPushed = false
-        //self.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(albumController, animated: true)
     }
 

@@ -17,7 +17,7 @@ final class SearchViewController: UIViewController {
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: SearchResultsViewController())
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        searchController.searchBar.placeholder = "Search Artists"
+        searchController.searchBar.placeholder = Constants.UIText.searchArtists
         searchController.searchBar.searchBarStyle = .minimal
         searchController.definesPresentationContext = true
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = attributes
@@ -27,8 +27,8 @@ final class SearchViewController: UIViewController {
     private lazy var instructionsLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont(name: "Avenir Heavy", size: 16)
-        label.text = "Enter an artist name"
+        label.font = UIFont(name: Constants.Fonts.heavy, size: 16)
+        label.text = Constants.UIText.enterArtist
         label.textColor = .textColor
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -74,7 +74,6 @@ final class SearchViewController: UIViewController {
     }
     
     private func setDelegates() {
-        //self.searchController.searchResultsUpdater = self
         self.searchController.searchBar.delegate = self
     }
 
@@ -85,7 +84,7 @@ final class SearchViewController: UIViewController {
     }
     
     private func setNavBar() {
-        title = "Search"
+        title = Constants.Titles.search
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
         navigationController?.navigationBar.titleTextAttributes = textAttributes
@@ -102,8 +101,8 @@ final class SearchViewController: UIViewController {
     }
     
     private func setTabBar() {
-        navigationController?.tabBarItem.image = UIImage(systemName: "magnifyingglass.circle")
-        navigationController?.tabBarItem.selectedImage = UIImage(systemName: "magnifyingglass.circle.fill")
+        navigationController?.tabBarItem.image = UIImage(systemName: Constants.Images.magnifying)
+        navigationController?.tabBarItem.selectedImage = UIImage(systemName: Constants.Images.selectedMagnifying)
     }
     
     private func search(for artist: String) {
@@ -116,8 +115,19 @@ final class SearchViewController: UIViewController {
             .subscribe(onNext: { response in
                 let artists = response.artists.items
                 resultsController.updateView(with: artists)
+            }, onError: { [weak self] err in
+                let message = Constants.UIText.noResults
+                self?.showError(message: message)
+                print("Error getting results = \(err.localizedDescription)")
             })
             .disposed(by: disposeBag)
+    }
+
+    private func showError(message: String) {
+        let alert = UIAlertController(title: Constants.UIText.wrong, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: Constants.UIText.ok, style: .default)
+        alert.addAction(dismissAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 extension SearchViewController: SearchResultsViewControllerDelegate {

@@ -13,4 +13,5 @@ extension UIColor {
     static let darkGray = UIColor(red: Utilities.getColor(47), green: Utilities.getColor(54), blue: Utilities.getColor(64), alpha: 1)
     static let blueGray = UIColor(red: Utilities.getColor(60), green: Utilities.getColor(99), blue: Utilities.getColor(130), alpha: 1)
     static let darkBackground = UIColor(red: Utilities.getColor(30), green: Utilities.getColor(39), blue: Utilities.getColor(46), alpha: 1)
+    static let ticketSwapBlue = UIColor(red: Utilities.getColor(0), green: Utilities.getColor(194), blue: Utilities.getColor(246), alpha: 1)
 }

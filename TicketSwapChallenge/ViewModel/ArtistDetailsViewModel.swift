@@ -12,8 +12,9 @@ import RxCocoa
 final class ArtistDetailsViewModel {
 
     func getTopSongs(for artistId: String) -> Observable<TrackResponse> {
-        // let newReleasesURLString = Constants.Network.baseURL + "/browse/new-releases?limit=40"
-        let topSongsURLString = Constants.Network.baseURL + "/artists/" + artistId + "/top-tracks?market=US"
+        let artistEndpoint = "/artists/"
+        let topTracksEndpoint = "/top-tracks?market=NL"
+        let topSongsURLString = Constants.Network.baseURL + artistEndpoint + artistId + topTracksEndpoint
 
         return Observable
             .just(topSongsURLString)
@@ -32,18 +33,18 @@ final class ArtistDetailsViewModel {
             }
             .map { response, data -> TrackResponse in
                 if 200..<300 ~= response.statusCode {
-                    let json = try JSONSerialization.jsonObject(with: data)
                     let tracks = try JSONDecoder().decode(TrackResponse.self, from: data)
                     return tracks
                 } else {
-                    print("response \(response)")
                     throw RxCocoaURLError.httpRequestFailed(response: response, data: data)
                 }
             }
     }
 
     func getAlbums(for artistId: String) -> Observable<AlbumResponse> {
-        let albumsURLString = Constants.Network.baseURL + "/artists/" + artistId + "/albums"
+        let artistEndpoint = "/artists/"
+        let albumsEndpoint = "/albums"
+        let albumsURLString = Constants.Network.baseURL + artistEndpoint + artistId + albumsEndpoint
 
         return Observable
             .just(albumsURLString)
@@ -62,9 +63,7 @@ final class ArtistDetailsViewModel {
             }
             .map { response, data -> AlbumResponse in
                 if 200..<300 ~= response.statusCode {
-                    let json = try JSONSerialization.jsonObject(with: data)
                     let albums = try JSONDecoder().decode(AlbumResponse.self, from: data)
-                    print("albums = \(albums)")
                     return albums
                 } else {
                     throw RxCocoaURLError.httpRequestFailed(response: response, data: data)

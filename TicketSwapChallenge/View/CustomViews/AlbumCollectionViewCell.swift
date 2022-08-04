@@ -13,7 +13,7 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     
     private lazy var coverImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "photo")
+        imageView.image = UIImage(systemName: Constants.Images.photo)
         imageView.contentMode = .scaleAspectFill
         imageView.tintColor = .white
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +22,7 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
-        nameLabel.font = UIFont(name: "Avenir Heavy", size: 10)
+        nameLabel.font = UIFont(name: Constants.Fonts.heavy, size: 10)
         nameLabel.textColor = .textColor
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.numberOfLines = 0
@@ -32,7 +32,7 @@ class AlbumCollectionViewCell: UICollectionViewCell {
 
     private lazy var artistNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir Heavy", size: 12)
+        label.font = UIFont(name: Constants.Fonts.heavy, size: 12)
         label.textColor = .white
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +71,6 @@ class AlbumCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(textStackView)
     }
 
-    // Maybe implement prepare for reuse
     private func setConstraints() {
         NSLayoutConstraint.activate([
             coverImage.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -93,6 +92,10 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     public func configure(with viewModel: AlbumCellViewModel) {
         nameLabel.text = viewModel.albumName
         artistNameLabel.text = viewModel.artist
-        coverImage.sd_setImage(with: viewModel.imageURL)
+        if let imageURL = viewModel.imageURL {
+            coverImage.sd_setImage(with: imageURL)
+        } else {
+            coverImage.image = UIImage(named: Constants.Images.photo)
+        }
     }
 }

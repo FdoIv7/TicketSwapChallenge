@@ -10,11 +10,6 @@ import SDWebImage
 import RxSwift
 import RxCocoa
 
-enum SectionType {
-    case popularSongs(viewModels: [TrackCellViewModel]) // 1
-    case albums // 2
-}
-
 final class ArtistDetailViewController: UIViewController {
     
     private let artist: Artist
@@ -25,35 +20,43 @@ final class ArtistDetailViewController: UIViewController {
     private var trackCellViewModels = [TrackCollectionCellViewModel]()
     private var albumCellViewModels = [AlbumCellViewModel]()
     private let viewModel = ArtistDetailsViewModel()
-    private var sections = [SectionType]()
     private let disposeBag = DisposeBag()
     
     private lazy var artistImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: Constants.Images.photo)
+        imageView.tintColor = .white
+        imageView.layer.shadowRadius = Constants.Layout.shadowRadius
+        imageView.layer.shadowOpacity = Constants.Layout.shadowOpacity
+        imageView.layer.shadowOffset = .zero
+        imageView.layer.shadowColor = UIColor.black.cgColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
+    }()
+
+    private lazy var songsHeader: UICollectionReusableView = {
+        let header = CollectionViewHeader()
+        header.translatesAutoresizingMaskIntoConstraints = false
+        return header
     }()
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewCompositionalLayout { [weak self] sectionIndex, env in
             return self?.createCollectionSection(for: sectionIndex)
         }
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 0
+        layout.configuration = config
+
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constants.IDs.cell)
         collectionView.register(ArtistAlbumCollectionCell.self, forCellWithReuseIdentifier: ArtistAlbumCollectionCell.identifier)
         collectionView.register(TrackCollectionViewCell.self, forCellWithReuseIdentifier: TrackCollectionViewCell.identifier)
         collectionView.register(CollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewHeader.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .darkBackground
         return collectionView
-    }()
-    
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.backgroundColor = .systemOrange
-        return scrollView
     }()
     
     private func createCollectionSection(for section: Int) -> NSCollectionLayoutSection? {
@@ -68,50 +71,50 @@ final class ArtistDetailViewController: UIViewController {
     }
     
     private func configurePopularSongsSection() -> NSCollectionLayoutSection? {
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50.0))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
+
         let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: size)
-        
+
         item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 8, bottom: 2, trailing: 8)
-        
-        // Songs Group
+        header.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0)
+
         let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50))
         let songsGroup = NSCollectionLayoutGroup.vertical(layoutSize: layoutSize, subitem: item, count: 1)
-        
-        // Section
+
         let section = NSCollectionLayoutSection(group: songsGroup)
+        section.boundarySupplementaryItems = [header]
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 16
         return section
     }
     
     private func configureAlbumsSection() -> NSCollectionLayoutSection? {
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50.0))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
+
         let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: size)
-        
-        item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+
+        item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 8, bottom: 2, trailing: 8)
+        header.contentInsets = NSDirectionalEdgeInsets(top: -20, leading: 16, bottom: 20, trailing: 0)
         
         let layoutSize = NSCollectionLayoutSize(widthDimension: .absolute(170), heightDimension: .absolute(170))
         let albumsGroup = NSCollectionLayoutGroup.horizontal(layoutSize: layoutSize, subitem: item, count: 1 )
         // Section
         let section = NSCollectionLayoutSection(group: albumsGroup)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
+        section.boundarySupplementaryItems = [header]
         return section
     }
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        // only show the table view if we do get data back
-        tableView.isHidden = true
-        return tableView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .darkBackground
-        title = self.artist.name
-        navigationItem.largeTitleDisplayMode = .never
-        print("Artist = \(artist)")
+        setViewLook()
         setDelegates()
         getArtistDetails()
-        configureCollectionView()
         setView()
     }
     
@@ -123,6 +126,12 @@ final class ArtistDetailViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setViewLook() {
+        view.backgroundColor = .darkBackground
+        title = self.artist.name
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     private func setDelegates() {
@@ -148,10 +157,10 @@ final class ArtistDetailViewController: UIViewController {
             .subscribe(onNext: { [unowned self] songs in
                 self.popularTracks = songs.tracks
                 self.createTrackViewModels(with: self.popularTracks)
-                print("Songs = \(songs)")
-                collectionView.reloadData()
-            }, onError: { err in
-                print("Error = \(err.localizedDescription)")
+            }, onError: { [weak self] err in
+                let message = Constants.UIText.errorSongs
+                self?.showError(message: message)
+                print("Error getting songs = \(err.localizedDescription)")
             })
             .disposed(by: disposeBag)
     }
@@ -161,12 +170,12 @@ final class ArtistDetailViewController: UIViewController {
             .getAlbums(for: id)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [unowned self] albums in
-                print("Albums from vc = \(albums)")
                 self.albums = albums.items
-                createAlbumsViewModels(with: self.albums)
-                collectionView.reloadData()
-            }, onError: { err in
-                print("Error from vc = \(err)")
+                self.createAlbumsViewModels(with: self.albums)
+            }, onError: { [weak self] err in
+                let message = Constants.UIText.errorAlbums
+                self?.showError(message: message)
+                print("Error getting albums = \(err)")
             })
             .disposed(by: disposeBag)
     }
@@ -197,36 +206,19 @@ final class ArtistDetailViewController: UIViewController {
         if let imageURL = URL(string: artist.images?.first?.url ?? "") {
             artistImage.sd_setImage(with: imageURL)
         } else {
-            artistImage.image = UIImage(named: "musician")
+            artistImage.image = UIImage(named: Constants.Images.musician)
         }
     }
     
     private func addSubviews() {
-        //view.addSubview(scrollView)
-        //scrollView.addSubview(artistImage)
         view.addSubview(artistImage)
         view.addSubview(collectionView)
-    }
-    
-    private func configureCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
     }
     
     private func setConstraints() {
         let guide = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            // Scroll view
-            //            scrollView.topAnchor.constraint(equalTo: guide.topAnchor),
-            //            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            //            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            //            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            
-            // General view
             artistImage.topAnchor.constraint(equalTo: guide.topAnchor),
-            
-            //artistImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            //artistImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             artistImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             artistImage.widthAnchor.constraint(equalToConstant: 200),
             artistImage.heightAnchor.constraint(equalToConstant: 200),
@@ -236,19 +228,16 @@ final class ArtistDetailViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-}
 
-extension ArtistDetailViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    private func showError(message: String) {
+        let alert = UIAlertController(title: Constants.UIText.wrong, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: Constants.UIText.ok, style: .default)
+        alert.addAction(dismissAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 
-extension ArtistDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ArtistDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -259,7 +248,7 @@ extension ArtistDetailViewController: UICollectionViewDelegate, UICollectionView
             return 1
         }
     }
-    
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -284,8 +273,21 @@ extension ArtistDetailViewController: UICollectionViewDelegate, UICollectionView
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewHeader.identifier, for: indexPath) as? CollectionViewHeader else { return UICollectionReusableView() }
-        header.configure(title: "Albums")
-        return header
+        switch indexPath.section {
+        case 0:
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewHeader.identifier, for: indexPath) as? CollectionViewHeader else { return UICollectionReusableView() }
+            header.configure(title: Constants.UIText.popularSongs)
+            return header
+        case 1:
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewHeader.identifier, for: indexPath) as? CollectionViewHeader else { return UICollectionReusableView() }
+            header.configure(title: Constants.UIText.albums)
+            return header
+        default:
+            return UICollectionReusableView()
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.size.width, height: 50)
     }
 }

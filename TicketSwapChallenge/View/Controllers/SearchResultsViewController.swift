@@ -95,6 +95,7 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistResultTableViewCell.identifier, for: indexPath)
                 as? ArtistResultTableViewCell else { return UITableViewCell() }
         let viewModel = self.searchResultsViewModels[indexPath.row]
+        cell.selectionStyle = .none
         cell.configure(with: viewModel)
         return cell
     }
@@ -104,8 +105,6 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Artist = \(artistsResult[indexPath.row].name)")
-        print("Id = \(artistsResult[indexPath.row].id)")
         let artist = artistsResult[indexPath.row]
         let artistDetailViewController = ArtistDetailViewController(artist: artist)
         delegate?.didTapArtistResult(artistDetailViewController)

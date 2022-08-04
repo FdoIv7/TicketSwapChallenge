@@ -13,8 +13,10 @@ class CollectionViewHeader: UICollectionReusableView {
 
     private lazy var headerLabel: UILabel = {
         let label = UILabel()
-        label.text = "Header"
+        label.font = UIFont(name: Constants.Fonts.heavy, size: 30)
         label.textColor = .white
+        label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -34,7 +36,6 @@ class CollectionViewHeader: UICollectionReusableView {
     }
     private func setView() {
         addSubviews()
-        backgroundColor = .systemTeal
     }
 
     private func addSubviews() {
