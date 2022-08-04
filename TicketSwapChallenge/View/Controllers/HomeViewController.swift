@@ -12,7 +12,7 @@ import RxCocoa
 class HomeViewController: UIViewController {
 
     let homeViewModel = HomeViewModel()
-    var newReleasesViewModels = [NewReleasesViewModel]()
+    var newReleasesViewModels = [AlbumCellViewModel]()
     var newAlbumReleases = [Album]()
     private let disposeBag = DisposeBag()
     
@@ -113,9 +113,9 @@ class HomeViewController: UIViewController {
                 // set our view models
                 for album in self.newAlbumReleases {
                     guard let imageURL = URL(string: album.images.first?.url ?? "") else { return }
-                    let viewModel = NewReleasesViewModel(artist: album.artists.first?.name ?? "-", imageURL: imageURL, albumName: album.name)
+                    let viewModel = AlbumCellViewModel(artist: album.artists.first?.name ?? "-", imageURL: imageURL, albumName: album.name)
                     self.newReleasesViewModels.append(viewModel)
-                    print("View Models async = \(self.newReleasesViewModels)")
+                    //print("View Models async = \(self.newReleasesViewModels)")
                     self.collectionView.reloadData()
                 }
             }, onError: { error in
@@ -124,7 +124,7 @@ class HomeViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        print("View Models = \(newReleasesViewModels)")
+        //print("View Models = \(newReleasesViewModels)")
     }
 
     private func setConstraints() {

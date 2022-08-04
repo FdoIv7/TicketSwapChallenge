@@ -121,15 +121,6 @@ final class AlbumDetailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         view.backgroundColor = .darkBackground
     }
-
-//    private func setTabBar() {
-//        tabBarController?.tabBar.isTranslucent = false
-//        tabBarController?.tabBar.backgroundColor = .darkBackground
-//        tabBarController?.tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        tabBarController?.tabBar.layer.shadowRadius = 2
-//        tabBarController?.tabBar.layer.shadowColor = UIColor.black.cgColor
-//        tabBarController?.tabBar.layer.shadowOpacity = 0.5
-//    }
     
     private func setConstraints() {
         let safeGuide = view.safeAreaLayoutGuide

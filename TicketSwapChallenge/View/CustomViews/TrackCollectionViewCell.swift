@@ -1,17 +1,17 @@
 //
-//  SongTableViewCell.swift
+//  TrackCollectionViewCell.swift
 //  TicketSwapChallenge
 //
-//  Created by Fernando Ives on 29/07/22.
+//  Created by Fernando Ives on 03/08/22.
 //
 
 import UIKit
 
-class SongTableViewCell: UITableViewCell {
+class TrackCollectionViewCell: UICollectionViewCell {
 
-    static let identifier = "SongTableViewCell"
+    static let identifier = "TrackCollectionViewCell"
 
-    private lazy var artistNameLabel: UILabel = {
+    private lazy var albumNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .textColor
@@ -30,23 +30,22 @@ class SongTableViewCell: UITableViewCell {
     }()
 
     private lazy var trackStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [trackNameLabel, artistNameLabel])
+        let stackView = UIStackView(arrangedSubviews: [trackNameLabel, albumNameLabel])
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupView()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setView()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    private func setupView() {
+    
+    private func setView() {
         addSubviews()
         setConstraints()
         setViewLook()
@@ -77,8 +76,8 @@ class SongTableViewCell: UITableViewCell {
         contentView.backgroundColor = .darkBackground
     }
 
-    public func configure(with viewModel: TrackCellViewModel) {
-        artistNameLabel.text = viewModel.artistName
+    func configure(with viewModel: TrackCollectionCellViewModel) {
         trackNameLabel.text = viewModel.trackName
+        albumNameLabel.text = viewModel.albumName
     }
 }

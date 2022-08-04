@@ -13,7 +13,8 @@ final class SearchViewModel {
     
     func performSearch(with query: String) -> Observable<SearchResponse> {
         // Update URL
-        let searchURLString = Constants.Network.baseURL + "/search?limit=5&type=artist&q=" + (query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+        let searchURLString = Constants.Network.baseURL + "/search?limit=10&type=artist&q=" + (query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+        
         return Observable
             .just(searchURLString)
             .flatMap { url -> Observable<(response: HTTPURLResponse, data: Data)> in
@@ -32,7 +33,7 @@ final class SearchViewModel {
             .map { response, data -> SearchResponse in
                 if 200..<300 ~= response.statusCode {
                     let results = try JSONSerialization.jsonObject(with: data)
-                    print("Artist result = \(results)")
+                    //print("Artist result = \(results)")
                     return try JSONDecoder().decode(SearchResponse.self, from: data)
                 } else {
                     throw RxCocoaURLError.httpRequestFailed(response: response, data: data)

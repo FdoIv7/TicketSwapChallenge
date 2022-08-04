@@ -41,7 +41,7 @@ final class AuthManager {
         // Refresh token after a couple minutes
         guard let expirationDate = tokenExpirationDate else { return false }
         let currentDate = Date()
-        let fiveMins: TimeInterval = 300
+        let fiveMins: TimeInterval = 1000
         return currentDate.addingTimeInterval(fiveMins) >= expirationDate
     }
     

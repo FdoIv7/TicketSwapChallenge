@@ -1,15 +1,15 @@
 //
-//  AlbumCollectionViewCell.swift
+//  ArtistAlbumCollectionCell.swift
 //  TicketSwapChallenge
 //
-//  Created by Fernando Ives on 24/07/22.
+//  Created by Fernando Ives on 03/08/22.
 //
 
 import UIKit
 import SDWebImage
 
-class AlbumCollectionViewCell: UICollectionViewCell {
-    static let identifier = "AlbumCollectionViewCell"
+class ArtistAlbumCollectionCell: UICollectionViewCell {
+    static let identifier = "ArtistAlbumCollectionCell"
     
     private lazy var coverImage: UIImageView = {
         let imageView = UIImageView()
@@ -22,7 +22,7 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
-        nameLabel.font = UIFont(name: "Avenir Heavy", size: 10)
+        nameLabel.font = UIFont(name: "Avenir Heavy", size: 15)
         nameLabel.textColor = .textColor
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.numberOfLines = 0
@@ -30,17 +30,8 @@ class AlbumCollectionViewCell: UICollectionViewCell {
         return nameLabel
     }()
 
-    private lazy var artistNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Avenir Heavy", size: 12)
-        label.textColor = .white
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
     private lazy var textStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [nameLabel, artistNameLabel])
+        let stackView = UIStackView(arrangedSubviews: [nameLabel])
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -71,16 +62,14 @@ class AlbumCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(textStackView)
     }
 
-    // Maybe implement prepare for reuse
     private func setConstraints() {
         NSLayoutConstraint.activate([
             coverImage.topAnchor.constraint(equalTo: contentView.topAnchor),
             coverImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             coverImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            coverImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
-            textStackView.topAnchor.constraint(equalTo: coverImage.bottomAnchor, constant: 15),
+            coverImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50),
+            textStackView.topAnchor.constraint(equalTo: coverImage.bottomAnchor, constant: 35),
             textStackView.leadingAnchor.constraint(equalTo: coverImage.leadingAnchor),
-            //textStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             textStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             textStackView.heightAnchor.constraint(equalToConstant: 35)
         ])
@@ -92,7 +81,7 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     
     public func configure(with viewModel: AlbumCellViewModel) {
         nameLabel.text = viewModel.albumName
-        artistNameLabel.text = viewModel.artist
         coverImage.sd_setImage(with: viewModel.imageURL)
     }
 }
+
