@@ -11,6 +11,7 @@ The app uses the Spotify API
 
 # Setup
 - Clone the repository by using `git clone https://github.com/FdoIv7/TicketSwapChallenge.git` in Terminal
+- `cd` into directory
 - Run `pod install`
 - Open `TicketSwapChallenge.xcworkspace` file in Xcode
 - Wait for the dependencies to be installed
