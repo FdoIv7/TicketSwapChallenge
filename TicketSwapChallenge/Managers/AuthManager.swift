@@ -41,23 +41,26 @@ final class AuthManager {
         // Refresh token after a couple minutes
         guard let expirationDate = tokenExpirationDate else { return false }
         let currentDate = Date()
-        let fiveMins: TimeInterval = 1000
+        let fiveMins: TimeInterval = 300
         return currentDate.addingTimeInterval(fiveMins) >= expirationDate
     }
     
     public func getCodeForToken(code: String, completion: @escaping((Bool) -> ())) {
         // Get Token
         guard let url = URL(string: Constants.Network.tokenAPIURL) else { return }
+
         var components = URLComponents()
         components.queryItems = [
             URLQueryItem(name: "grant_type", value: "authorization_code"),
             URLQueryItem(name: "code", value: code),
             URLQueryItem(name: "redirect_uri", value: Constants.Network.redirectUri)
         ]
+
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue("application/x-www-form-urlencoded ", forHTTPHeaderField: "Content-Type")
+        request.setValue( "application/x-www-form-urlencoded ", forHTTPHeaderField: "Content-Type")
         request.httpBody = components.query?.data(using: .utf8)
+ 
         let basicToken = Constants.Network.spotifyClientId + ":" + Constants.Network.spotifyClientSecretKey
         let data = basicToken.data(using: .utf8)
         guard let base64String = data?.base64EncodedString() else {
@@ -74,7 +77,7 @@ final class AuthManager {
             }
             // We got data
             do {
-                let result = try JSONDecoder().decode(AuthResponse.self, from: data)
+                let result = try JSONDecoder().decode(  AuthResponse.self, from: data)
                 self?.cacheToken(with: result)
                 completion(true)
                 // API Token needs to be encoded with multipart form APIData - Not in JSON
@@ -87,12 +90,11 @@ final class AuthManager {
     
     private func cacheToken(with result: AuthResponse) {
         UserDefaults.standard.setValue(result.accessToken, forKey: "access_token")
-        if let refreshToken = refreshToken {
-            UserDefaults.standard.setValue(refreshToken , forKey: "refresh_token")
+        if let refreshToken = result.refreshToken {
+            UserDefaults.standard.setValue(refreshToken, forKey: "refresh_token")
         }
         // Current time the user logged in + the number of seconds it expires in
         UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expiration)), forKey: "expirationDate")
-         
     }
 
     // Gives us a Valid Token to make API Calls
@@ -105,7 +107,7 @@ final class AuthManager {
         if shouldRefreshToken {
             // Refresh token
             refreshAccessToken { [weak self] success in
-                if success,   let token = self?.accessToken {
+                if let token = self?.accessToken, success {
                     completion(token)
                 }
             }
@@ -120,13 +122,17 @@ final class AuthManager {
     public func refreshAccessToken(completion: ((Bool) -> ())?) {
         // Check if we are not refreshing so we dont do it twice
         // Made completion optional to be able to pass nil
-        guard !isRefreshing else { return  }
+        guard !isRefreshing else { return }
         guard shouldRefreshToken else {
             completion?(true)
             return
         }
 
-        guard let refreshToken = refreshToken, let url = URL(string: Constants.Network.tokenAPIURL) else { return }
+        guard let refreshToken = refreshToken else {
+            return
+        }
+
+        guard let url = URL(string: Constants.Network.tokenAPIURL) else { return }
         isRefreshing = true
 
         var components = URLComponents()

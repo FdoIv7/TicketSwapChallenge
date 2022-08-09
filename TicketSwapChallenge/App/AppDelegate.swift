@@ -11,13 +11,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    let homeViewController = HomeViewController()
-    let searchViewController = SearchViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let window = UIWindow(frame: UIScreen.main.bounds)
         if AuthManager.shared.isSigned {
-            AuthManager.shared.refreshAccessToken(completion: nil)
+            AuthManager.shared.refreshAccessToken(completion: nil) 
             let tabController = TabBarController()
             window.rootViewController = tabController
         } else {
@@ -28,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         window.makeKeyAndVisible()
         self.window = window
-        AuthManager.shared.refreshAccessToken(completion: nil) 
         // Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Mobile/15E148 Safari/604.1
         let dictionary = NSDictionary(object: "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36", forKey: "UserAgent" as NSCopying)
         if let dict = dictionary as? [String: Any] {

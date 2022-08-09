@@ -54,12 +54,9 @@ extension AuthViewController: WKNavigationDelegate {
         guard let url = webView.url else { return }
         // Get code that Spotify gives us for accessToken
         let components = URLComponents(string: url.absoluteString)
-        let code = components?.queryItems?.first(where: { item in
-            item.name == "code"
-        })
-        guard let spotifyCode = code?.value else { return }
+        guard let code = components?.queryItems?.first(where: { $0.name == "code" })?.value else { return } 
         webView.isHidden = true
-        AuthManager.shared.getCodeForToken(code: spotifyCode) { [weak self] success in
+        AuthManager.shared.getCodeForToken(code: code) { [weak self] success in
             DispatchQueue.main.async {
                 self?.navigationController?.popToRootViewController(animated: true)
                 self?.isSignedIn?(success)

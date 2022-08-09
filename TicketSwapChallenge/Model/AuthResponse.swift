@@ -8,7 +8,6 @@
 import Foundation
 
 struct AuthResponse: Codable {
-
     let accessToken: String
     let expiration: Int
     let refreshToken: String?
@@ -22,5 +21,4 @@ struct AuthResponse: Codable {
         case scope = "scope"
         case tokenType = "token_type"
     }
-    
 } 
